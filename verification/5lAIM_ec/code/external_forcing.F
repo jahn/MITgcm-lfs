@@ -131,7 +131,6 @@ C     Loop counters
 
 C--   Forcing term
 #ifdef ALLOW_AIM
-      WRITE(0,*) ' myThid == ', myThid
       IF ( useAIM ) CALL AIM_EXTERNAL_FORCING_T( iMin, iMax,
      &              jMin, jMax,bi,bj,kLev,
      &              myCurrentTime, myThid )

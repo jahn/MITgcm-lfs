@@ -2,10 +2,11 @@ C $Header$
 
 #include "CPP_OPTIONS.h"
 
-      SUBROUTINE PACKAGES_INIT( myThid )
+      SUBROUTINE PACKAGES_INIT_VARIABLES( myThid )
 C     /==========================================================\
-C     | SUBROUTINE PACKAGES_INIT                                 |
-C     | o Does initialisation of package internal fields         |
+C     | SUBROUTINE PACKAGES_INIT_VARIABLES                       |
+C     | o Does initialisation of package-related variable data   |
+C     |==========================================================|
 C     \==========================================================/
       IMPLICIT NONE
 
@@ -31,21 +32,24 @@ C--   Initialize KPP vertical mixing scheme.
       ENDIF
 #endif
 
-#ifdef INCLUDE_ECCO_PACKAGE
+#ifdef ALLOW_OBCS
+C--   Open boundaries data
+      IF (useOBCS) THEN
+        CALL OBCS_INIT_VARIABLES( myThid )
+      ENDIF
+#endif
 
+#ifdef INCLUDE_ECCO_PACKAGE
       IF (useECCO) THEN
        CALL ECCO_INIT( myThid )
       ENDIF
-
-#endif
-
-#ifndef INCLUDE_ECCO_PACKAGE
-      call ini_forcing( mythid )
+#else
+      CALL INI_FORCING( myThid )
 #endif
 
 #ifdef ALLOW_AIM
-      CALL AIM_INIT( mythid )
+      IF ( useAIM ) CALL AIM_INIT( mythid )
 #endif
 
-      return
-      end
+      RETURN
+      END

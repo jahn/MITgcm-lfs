@@ -44,7 +44,7 @@ C--   Initialize KPP vertical mixing scheme.
 #endif
 
 #ifdef ALLOW_AIM
-      CALL AIM_DO_INPHYS( mythid )
+      CALL AIM_INIT( mythid )
 #endif
 
       return

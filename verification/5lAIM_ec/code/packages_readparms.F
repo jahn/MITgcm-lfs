@@ -44,7 +44,8 @@ c--   Initialize ECCO package parameters
 
 #ifdef ALLOW_AIM
 c--   Read in AIM package parameters
-      IF (useAIM) CALL AIM_READPARMS ( myThid )
+C     Currently AIM does not have any runtime parameters
+C     IF (useAIM) CALL AIM_READPARMS ( myThid )
 #endif
 
       END

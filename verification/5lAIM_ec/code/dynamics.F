@@ -367,7 +367,7 @@ CADJ STORE vvel (:,:,:,bi,bj) = comlev1_bibj, key = ikey, byte = isbyte
 C       AIM - atmospheric intermediate model, physics package code.
         IF ( useAIM ) THEN
          CALL TIMER_START('AIM_DO_ATMOS_PHYS      [DYNAMICS]', myThid)
-         CALL AIM_DO_ATMOS_PHYS( phiHyd, myTime, myThid )
+         CALL AIM_DO_ATMOS_PHYSICS( phiHyd, myTime, myThid )
          CALL TIMER_STOP ('AIM_DO_ATMOS_PHYS      [DYNAMICS]', myThid)
         ENDIF
 #endif /* ALLOW_AIM */

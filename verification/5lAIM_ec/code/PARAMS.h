@@ -359,6 +359,8 @@ C     latFFTFiltLo       - Low latitude for FFT filtering of latitude
 C                          circles ( see filter*.F )
 C     Ro_SeaLevel        - standard position of Sea-Level in "R" coordinate, used as
 C                          starting value (k=1) for vertical coordinate (rf(1)=Ro_SeaLevel)
+C     bottomDragLinear   - Drag coefficient built in to core dynamics
+C         "     Quadratic  ( linear: 1/s, quadratic: 1/m )
       COMMON /PARM_R/ cg2dTargetResidual, cg2dpcOffDFac, 
      & cg3dTargetResidual,
      & delP, delZ, delR, delX, delY, 
@@ -378,7 +380,8 @@ C                          starting value (k=1) for vertical coordinate (rf(1)=R
      & externForcingCycle, externForcingPeriod,
      & viscAp, diffKpT, diffKpS, hFacMinDr, hFacMinDp,
      & theta_S, specVol_S, horiVertRatio, recip_horiVertRatio,
-     & latFFTFiltLo, ivdc_kappa, Ro_SeaLevel, zonal_filt_lat
+     & latFFTFiltLo, ivdc_kappa, Ro_SeaLevel, zonal_filt_lat,
+     & bottomDragLinear,bottomDragQuadratic 
 
       _RL cg2dTargetResidual
       _RL cg3dTargetResidual
@@ -461,6 +464,8 @@ C                          starting value (k=1) for vertical coordinate (rf(1)=R
       _RL ivdc_kappa
       _RL Ro_SeaLevel
       _RL zonal_filt_lat
+      _RL bottomDragLinear
+      _RL bottomDragQuadratic
 
       COMMON /PARM_A/ HeatCapacity_Cp,recip_Cp,
      &                Lamba_theta

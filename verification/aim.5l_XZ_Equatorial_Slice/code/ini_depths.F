@@ -27,6 +27,7 @@ C     === Global variables ===
 #include "EEPARAMS.h"
 #include "PARAMS.h"
 #include "GRID.h"
+#include "INI_DEPTHS.h"
 
 C     == Routine arguments ==
 C     myThid -  Number of this instance of INI_DEPTHS

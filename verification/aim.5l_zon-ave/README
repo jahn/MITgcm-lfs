@@ -1,0 +1,15 @@
+Intermediate Atmospheric physics, 5 layers Molteni Physics package.
+Zonal Mean configuration, 64x5 resolution, from Pole to Pole.
+====================================================================
+
+To reproduce the run :
+
+cd bin
+../tools/genmake -makefile -enable=aim -platform=Linux+pgi
+ln -s ../verification/aim.5l_zon-ave/code/*.h .
+make depend
+ln -sf ../verification/aim.5l_zon-ave/code/*.F .
+make
+
+cd ../verification/aim.5l_zon-ave/input
+../../../exe/mitgcmuv

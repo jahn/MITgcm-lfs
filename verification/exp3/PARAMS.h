@@ -325,6 +325,9 @@ C     recip_horiVertRatio  ( 1 if horiz in m and vertical in m ).
 C                          ( g*rho if horiz in m and vertical in Pa ).
 C     latFFTFiltLo       - Low latitude for FFT filtering of latitude
 C                          circles ( see filter*.F )
+C     tauSynopSpinDown      - Synoptic system "spin-down" timescale.
+C     bottomDragHeightScale - Height scale at which bottom drag term drops
+C                             to zero in the Held-Suarez formulation.
       COMMON /PARM_R/ cg2dTargetResidual, cg2dpcOffDFac, 
      & cg3dTargetResidual,
      & delP, delZ, delR, delX, delY, 
@@ -344,7 +347,9 @@ C                          circles ( see filter*.F )
      & externForcingCycle, externForcingPeriod,
      & viscAp, diffKpT, diffKpS, hFacMinDr, hFacMinDp,
      & theta_S, specVol_S, horiVertRatio, recip_horiVertRatio,
-     & latFFTFiltLo
+     & latFFTFiltLo, tauSynopSpinDown, bottomDragHeightScale,
+     & pGround, poleEqThetaDrop, verticalThetaDrop, tauThetaEquiLong,
+     & tauThetaEquiShort
 
       _RL cg2dTargetResidual
       _RL cg3dTargetResidual
@@ -429,6 +434,14 @@ C                          circles ( see filter*.F )
       _RL horiVertRatio
       _RL recip_horiVertRatio
       _RL latFFTFiltLo
+      _RL tauSynopSpinDown
+      _RL bottomDragHeightScale
+      _RL pGround
+      _RL poleEqThetaDrop
+      _RL verticalThetaDrop
+      _RL tauThetaEquiLong
+      _RL tauThetaEquiShort
+
 
       COMMON /PARM_A/ HeatCapacity_Cp,
      &                Lamba_theta

@@ -92,17 +92,16 @@ C--   Continuous equation parameters
      & tempStepping, saltStepping, momStepping, implicitDiffusion,
      & viscAr, diffKrT, diffKrS, hFacMinDr,
      & viscAp, diffKpT, diffKpS, hFacMinDp,
-     & rhoConst, buoyancyRelation
+     & rhoConst, buoyancyRelation, nShap,
+     & tauSynopSpinDown, bottomDragHeightScale
 
 C--   Elliptic solver parameters
       NAMELIST /PARM02/
-     & cg2dMaxIters, cg2dChkResFreq, cg2dTargetResidual, cg2dpcOffDFac,
-     & cg3dMaxIters, cg3dChkResFreq, cg3dTargetResidual
+     & cg2dMaxIters, cg2dChkResFreq, cg2dTargetResidual, cg2dpcOffDFac
 
 C--   Time stepping parammeters
       NAMELIST /PARM03/
-     & nIter0, nTimeSteps, deltaT, deltaTmom, deltaTtracer, abEps, 
-     & tauCD, rCD,
+     & nIter0, nTimeSteps, deltaT, deltaTmom, deltaTtracer, abEps, tauCD, rCD,
      & startTime, endTime, chkPtFreq, dumpFreq, taveFreq, deltaTClock,
      & pChkPtFreq, cAdjFreq, tauThetaClimRelax, tauSaltClimRelax,
      & periodicExternalForcing, externForcingPeriod, externForcingCycle
@@ -111,7 +110,10 @@ C--   Gridding parameters
       NAMELIST /PARM04/
      & usingCartesianGrid, delZ, dxSpacing, dySpacing, delX, delY,
      & usingSphericalPolarGrid, phiMin, thetaMin, rSphere,
-     & l, m, n, delP, delR, rkFac
+     & l, m, n, delP, delR, rkFac, latFFTFiltLo,
+     & pGround, poleEqThetaDrop, verticalThetaDrop,
+     & tauThetaEquiLong, tauThetaEquiShort, tauSynopSpinDown,
+     & bottomDragHeightScale
 
 C--   Input files
       NAMELIST /PARM05/
@@ -134,9 +136,9 @@ C--   Initialise "which vertical coordinate system used" flags.
 C--   Open the parameter file
       OPEN(UNIT=scrUnit1,STATUS='SCRATCH')
       OPEN(UNIT=scrUnit2,STATUS='SCRATCH')
-      OPEN(UNIT=modelDataUnit,FILE='data',STATUS='OLD',
-     &     IOSTAT=errIO)
-      IF ( errIO .LT. 0 ) THEN
+      OPEN(UNIT=modelDataUnit,FILE='data',STATUS='OLD',err=1,IOSTAT=errIO)
+      IF ( errIO .GE. 0 ) GOTO 2
+    1 CONTINUE
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -148,39 +150,36 @@ C--   Open the parameter file
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ENDIF     
+    2 CONTINUE
 
-      DO WHILE ( .TRUE. )
-       READ(modelDataUnit,FMT='(A)',END=1001) RECORD
-       IL = MAX(ILNBLNK(RECORD),1)
-       IF ( RECORD(1:1) .NE. commentCharacter )
-     &     WRITE(UNIT=scrUnit1,FMT='(A)') RECORD(:IL)
-        WRITE(UNIT=scrUnit2,FMT='(A)') RECORD(:IL)
-      ENDDO
+ 1000 CONTINUE
+      READ(modelDataUnit,FMT='(A)',END=1001) RECORD
+      IL = MAX(ILNBLNK(RECORD),1)
+      IF ( RECORD(1:1) .NE. commentCharacter )
+     &    WRITE(UNIT=scrUnit1,FMT='(A)') RECORD(:IL)
+       WRITE(UNIT=scrUnit2,FMT='(A)') RECORD(:IL)
+      GOTO 1000
  1001 CONTINUE
       CLOSE(modelDataUnit)
 
 C--   Report contents of model parameter file
       WRITE(msgBuf,'(A)') 
      &'// ======================================================='
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit, 
-     &                    SQUEEZE_RIGHT , 1)
+      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit, SQUEEZE_RIGHT , 1)
       WRITE(msgBuf,'(A)') '// Model parameter file "data"'
-      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit, 
-     &                    SQUEEZE_RIGHT , 1)
+      CALL PRINT_MESSAGE( msgBuf, standardMessageUnit, SQUEEZE_RIGHT , 1)
       WRITE(msgBuf,'(A)') 
      &'// ======================================================='
       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit,
      &  SQUEEZE_RIGHT , 1)
       iUnit = scrUnit2
       REWIND(iUnit)
-      DO WHILE ( .TRUE. )
+ 2000 CONTINUE
        READ(UNIT=iUnit,FMT='(A)',END=2001) RECORD
        IL = MAX(ILNBLNK(RECORD),1)
        WRITE(msgBuf,'(A,A)') '>',RECORD(:IL)
-       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit, 
-     &                    SQUEEZE_RIGHT , 1)
-      ENDDO
+       CALL PRINT_MESSAGE( msgBuf, standardMessageUnit, SQUEEZE_RIGHT , 1)
+      GOTO 2000
  2001 CONTINUE
       CLOSE(iUnit)
       WRITE(msgBuf,'(A)') ' '
@@ -248,8 +247,12 @@ C--   Set default "physical" parameters
       saltStepping        = .TRUE.
       metricTerms         = .TRUE.
       implicitDiffusion   = .FALSE.
-      READ(UNIT=iUnit,NML=PARM01,IOSTAT=errIO)
-      IF ( errIO .LT. 0 ) THEN
+      nShap               = 0
+      tauSynopSpinDown    = 86400. _d 0
+      bottomDragHeightScale = 0.7  _d 0
+      READ(UNIT=iUnit,NML=PARM01,IOSTAT=errIO,err=3)
+      IF ( errIO .GE. 0 ) GOTO 4
+    3 CONTINUE
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -264,7 +267,7 @@ C--   Set default "physical" parameters
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ENDIF
+   4  CONTINUE
       IF ( implicitFreeSurface ) freeSurfFac = 1.D0
       IF ( rigidLid            ) freeSurfFac = 0.D0
 C--   Momentum viscosity on/off flag.
@@ -333,9 +336,8 @@ C--   z,p,r coord input switching.
       IF ( hFacMinDr .EQ. UNSET_RL ) hFacMinDr       = hFacMinDrDefault
 
       IF ( implicitFreeSurface .AND.  rigidLid ) THEN
-       WRITE(msgBuf,'(A,A)')
-     & 'S/R INI_PARMS: Cannot select both implicitFreeSurface',
-     & ' and rigidLid.'
+       WRITE(msgBuf,'(A)')
+     &  'S/R INI_PARMS: Cannot select both implicitFreeSurface and rigidLid.'
        CALL PRINT_ERROR( msgBuf , myThid)
        STOP 'ABNORMAL END: S/R INI_PARMS'
       ENDIF
@@ -370,12 +372,10 @@ C--   Elliptic solver parameters
       cg2dMaxIters       = 150
       cg2dTargetResidual = 1.D-7
       cg2dChkResFreq     = 1
-      cg3dMaxIters       = 150
-      cg3dTargetResidual = 1.D-7
-      cg3dChkResFreq     = 1
       cg2dpcOffDFac      = 0.51D0
-      READ(UNIT=iUnit,NML=PARM02,IOSTAT=errIO)
-      IF ( errIO .LT. 0 ) THEN
+      READ(UNIT=iUnit,NML=PARM02,IOSTAT=errIO,err=5)
+      IF ( errIO .GE. 0 ) GOTO 6
+    5 CONTINUE
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -390,7 +390,7 @@ C--   Elliptic solver parameters
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ENDIF    
+   6  CONTINUE
 
 C--   Time stepping parameters
       startTime         = 0.
@@ -420,8 +420,9 @@ C--   Time stepping parameters
       periodicExternalForcing = .FALSE.
       externForcingPeriod     = 0.
       externForcingCycle      = 0.
-      READ(UNIT=iUnit,NML=PARM03,IOSTAT=errIO)
-      IF ( errIO .LT. 0 ) THEN
+      READ(UNIT=iUnit,NML=PARM03,IOSTAT=errIO,err=7)
+      IF ( errIO .GE. 0 ) GOTO 8
+    7 CONTINUE
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -436,7 +437,7 @@ C--   Time stepping parameters
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ENDIF   
+   8  CONTINUE
 C     Process "timestepping" params
 C     o Time step size
       IF ( deltaT       .EQ. 0. ) deltaT       = deltaTmom
@@ -508,7 +509,7 @@ C     o Finish time
 
 C     o If taveFreq is finite, then we must make sure the diagnostics
 C       code is being compiled
-#ifndef INCLUDE_DIAGNOSTICS_INTERFACE_CODE
+#ifndef ALLOW_DIAGNOSTICS
       IF (taveFreq.NE.0.) THEN
         WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS: taveFreq <> 0  but you have'
@@ -516,9 +517,8 @@ C       code is being compiled
         WRITE(msgBuf,'(A)')
      &  'not compiled the model with the diagnostics routines.'
         CALL PRINT_ERROR( msgBuf , 1)
-        WRITE(msgBuf,'(A,A)')
-     &  'Re-compile with:  #define INCLUDE_DIAGNOSTICS_INTERFACE_CODE',
-     &  '              or  -DINCLUDE_DIAGNOSTICS_INTERFACE_CODE'
+        WRITE(msgBuf,'(A)')
+     &  'Re-compile with:  #define ALLOW_DIAGNOSTICS  or  -DALLOW_DIAGNOSTICS'
         CALL PRINT_ERROR( msgBuf , 1)
         STOP 'ABNORMAL END: S/R INI_PARMS'
       ENDIF
@@ -558,9 +558,12 @@ C     In spherical polar distances are in degrees
         delY(J) = dySpacing
        ENDDO
       ENDIF 
+C     Default that should mean no filtering.
+      latFFTFiltLo = 1.E36
 
-      READ(UNIT=iUnit,NML=PARM04,IOSTAT=errIO)
-      IF ( errIO .LT. 0 ) THEN
+      READ(UNIT=iUnit,NML=PARM04,IOSTAT=errIO,err=9)
+      IF ( errIO .GE. 0 ) GOTO 10
+    9 CONTINUE
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -575,7 +578,7 @@ C     In spherical polar distances are in degrees
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ENDIF    
+  10  CONTINUE
 C
       IF ( rSphere .NE. 0 ) THEN
        recip_rSphere = 1.D0/rSphere
@@ -656,8 +659,9 @@ C--   Input files
       meridWindFile   = ' '
       thetaClimFile   = ' '
       saltClimFile    = ' '
-      READ(UNIT=iUnit,NML=PARM05,IOSTAT=errIO)
-      IF ( errIO .LT. 0 ) THEN    
+      READ(UNIT=iUnit,NML=PARM05,IOSTAT=errIO,err=11)
+      IF ( errIO .GE. 0 ) GOTO 12
+   11 CONTINUE
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -672,7 +676,7 @@ C--   Input files
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-      ENDIF       
+  12  CONTINUE
 
 C
 C--   Set factors required for mixing pressure and meters as vertical coordinate.

@@ -1,6 +1,6 @@
 C $Header$
 
-#include "CPP_OPTIONS.h"
+#include "CPP_EEOPTIONS.h"
 
 CStartOfInterface
       SUBROUTINE INI_DEPTHS( myThid )
@@ -11,7 +11,7 @@ C     |==========================================================|
 C     | The depths of the bottom of the model is specified in    |
 C     | terms of an XY map with one depth for each column of     |
 C     | grid cells. Depths do not have to coincide with the      |
-C     | model levels. The model lopping algorithm makes it       |
+C     | model levels. The model's lopping algorithm makes it     |
 C     | possible to represent arbitrary depths.                  |
 C     | The mode depths map also influences the models topology  |
 C     | By default the model domain wraps around in X and Y.     |
@@ -59,12 +59,12 @@ C      realistic problem.
 C          Default depth of full domain
            H(i,j,bi,bj) = phi
 C          Test for eastern edge
-           IF ( iG .EQ. nX ) H(i,j,bi,bj) = 0.
+C          IF ( iG .EQ. nX ) H(i,j,bi,bj) = 0.
 C          Test for northern edge
-           IF ( jG .EQ. nY ) H(i,j,bi,bj) = 0.
+           IF ( yC(i,j,bi,bj) .GT. 90. ) H(i,j,bi,bj) = 0.
 C          Island
-           IF ( iG .EQ. 1 .AND. 
-     &          jG .EQ. 24 ) H(i,j,bi,bj) = 0.75*phi
+C          IF ( iG .EQ. 1 .AND. 
+C    &          jG .EQ. 24 ) H(i,j,bi,bj) = 0.75*phi
           ENDDO
          ENDDO
         ENDDO

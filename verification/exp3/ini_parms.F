@@ -136,9 +136,8 @@ C--   Initialise "which vertical coordinate system used" flags.
 C--   Open the parameter file
       OPEN(UNIT=scrUnit1,STATUS='SCRATCH')
       OPEN(UNIT=scrUnit2,STATUS='SCRATCH')
-      OPEN(UNIT=modelDataUnit,FILE='data',STATUS='OLD',err=1,IOSTAT=errIO)
-      IF ( errIO .GE. 0 ) GOTO 2
-    1 CONTINUE
+      OPEN(UNIT=modelDataUnit,FILE='data',STATUS='OLD',IOSTAT=errIO)
+      IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -150,15 +149,15 @@ C--   Open the parameter file
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-    2 CONTINUE
+      ENDIF       
 
- 1000 CONTINUE
-      READ(modelDataUnit,FMT='(A)',END=1001) RECORD
-      IL = MAX(ILNBLNK(RECORD),1)
-      IF ( RECORD(1:1) .NE. commentCharacter )
-     &    WRITE(UNIT=scrUnit1,FMT='(A)') RECORD(:IL)
-       WRITE(UNIT=scrUnit2,FMT='(A)') RECORD(:IL)
-      GOTO 1000
+      DO WHILE ( .TRUE. )
+       READ(modelDataUnit,FMT='(A)',END=1001) RECORD
+       IL = MAX(ILNBLNK(RECORD),1)
+       IF ( RECORD(1:1) .NE. commentCharacter )
+     &     WRITE(UNIT=scrUnit1,FMT='(A)') RECORD(:IL)
+        WRITE(UNIT=scrUnit2,FMT='(A)') RECORD(:IL)
+      ENDDO
  1001 CONTINUE
       CLOSE(modelDataUnit)
 
@@ -174,12 +173,12 @@ C--   Report contents of model parameter file
      &  SQUEEZE_RIGHT , 1)
       iUnit = scrUnit2
       REWIND(iUnit)
- 2000 CONTINUE
+      DO WHILE ( .TRUE. )
        READ(UNIT=iUnit,FMT='(A)',END=2001) RECORD
        IL = MAX(ILNBLNK(RECORD),1)
        WRITE(msgBuf,'(A,A)') '>',RECORD(:IL)
        CALL PRINT_MESSAGE( msgBuf, standardMessageUnit, SQUEEZE_RIGHT , 1)
-      GOTO 2000
+      ENDDO
  2001 CONTINUE
       CLOSE(iUnit)
       WRITE(msgBuf,'(A)') ' '
@@ -250,9 +249,8 @@ C--   Set default "physical" parameters
       nShap               = 0
       tauSynopSpinDown    = 86400. _d 0
       bottomDragHeightScale = 0.7  _d 0
-      READ(UNIT=iUnit,NML=PARM01,IOSTAT=errIO,err=3)
-      IF ( errIO .GE. 0 ) GOTO 4
-    3 CONTINUE
+      READ(UNIT=iUnit,NML=PARM01,IOSTAT=errIO)
+      IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -267,7 +265,7 @@ C--   Set default "physical" parameters
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-   4  CONTINUE
+      ENDIF    
       IF ( implicitFreeSurface ) freeSurfFac = 1.D0
       IF ( rigidLid            ) freeSurfFac = 0.D0
 C--   Momentum viscosity on/off flag.
@@ -373,9 +371,8 @@ C--   Elliptic solver parameters
       cg2dTargetResidual = 1.D-7
       cg2dChkResFreq     = 1
       cg2dpcOffDFac      = 0.51D0
-      READ(UNIT=iUnit,NML=PARM02,IOSTAT=errIO,err=5)
-      IF ( errIO .GE. 0 ) GOTO 6
-    5 CONTINUE
+      READ(UNIT=iUnit,NML=PARM02,IOSTAT=errIO)
+      IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -390,7 +387,7 @@ C--   Elliptic solver parameters
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-   6  CONTINUE
+      ENDIF    
 
 C--   Time stepping parameters
       startTime         = 0.
@@ -420,9 +417,8 @@ C--   Time stepping parameters
       periodicExternalForcing = .FALSE.
       externForcingPeriod     = 0.
       externForcingCycle      = 0.
-      READ(UNIT=iUnit,NML=PARM03,IOSTAT=errIO,err=7)
-      IF ( errIO .GE. 0 ) GOTO 8
-    7 CONTINUE
+      READ(UNIT=iUnit,NML=PARM03,IOSTAT=errIO)
+      IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -437,7 +433,7 @@ C--   Time stepping parameters
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-   8  CONTINUE
+      ENDIF    
 C     Process "timestepping" params
 C     o Time step size
       IF ( deltaT       .EQ. 0. ) deltaT       = deltaTmom
@@ -561,9 +557,8 @@ C     In spherical polar distances are in degrees
 C     Default that should mean no filtering.
       latFFTFiltLo = 1.E36
 
-      READ(UNIT=iUnit,NML=PARM04,IOSTAT=errIO,err=9)
-      IF ( errIO .GE. 0 ) GOTO 10
-    9 CONTINUE
+      READ(UNIT=iUnit,NML=PARM04,IOSTAT=errIO)
+      IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -578,7 +573,7 @@ C     Default that should mean no filtering.
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-  10  CONTINUE
+      ENDIF    
 C
       IF ( rSphere .NE. 0 ) THEN
        recip_rSphere = 1.D0/rSphere
@@ -659,9 +654,8 @@ C--   Input files
       meridWindFile   = ' '
       thetaClimFile   = ' '
       saltClimFile    = ' '
-      READ(UNIT=iUnit,NML=PARM05,IOSTAT=errIO,err=11)
-      IF ( errIO .GE. 0 ) GOTO 12
-   11 CONTINUE
+      READ(UNIT=iUnit,NML=PARM05,IOSTAT=errIO)
+      IF ( errIO .LT. 0 ) THEN
        WRITE(msgBuf,'(A)')
      &  'S/R INI_PARMS'
        CALL PRINT_ERROR( msgBuf , 1)
@@ -676,7 +670,7 @@ C--   Input files
        CALL PRINT_ERROR( msgBuf , 1)
        CALL MODELDATA_EXAMPLE( myThid )
        STOP 'ABNORMAL END: S/R INI_PARMS'
-  12  CONTINUE
+      ENDIF    
 
 C
 C--   Set factors required for mixing pressure and meters as vertical coordinate.

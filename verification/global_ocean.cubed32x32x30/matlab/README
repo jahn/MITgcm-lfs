@@ -5,3 +5,4 @@ Scripts for prepping forcing fields.
 Scripts for analyzing output.
   plot_psi.m  - computes barotropic stream function
   plot_ts.m   - plots surface t and s from annual average output
+  plot_flux.m - plots diagnostic flux terms from pkg/bulk_force 

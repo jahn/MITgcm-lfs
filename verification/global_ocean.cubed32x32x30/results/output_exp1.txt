@@ -166,10 +166,10 @@
 (PID.TID 0000.0001) > deltaTtracer=86400.0,
 (PID.TID 0000.0001) > deltaTfreesurf=86400.0,
 (PID.TID 0000.0001) > deltaTClock =86400.0,
-(PID.TID 0000.0001) > pChkptFreq  =311040000.,
-(PID.TID 0000.0001) > chkptFreq   =311040000.,
-(PID.TID 0000.0001) > dumpFreq    =311040000.,
-(PID.TID 0000.0001) > taveFreq    =311040000.,
+(PID.TID 0000.0001) > pChkptFreq  =31104000.,
+(PID.TID 0000.0001) > chkptFreq   =31104000.,
+(PID.TID 0000.0001) > dumpFreq    =31104000.,
+(PID.TID 0000.0001) > taveFreq    =31104000.,
 (PID.TID 0000.0001) > monitorFreq =31104000.,
 (PID.TID 0000.0001) > periodicExternalForcing=.TRUE.,
 (PID.TID 0000.0001) > externForcingPeriod=2592000.,
@@ -965,13 +965,13 @@
 (PID.TID 0000.0001)                 3.110400000000000E+07
 (PID.TID 0000.0001)     ;
 (PID.TID 0000.0001) pChkPtFreq =   /* Permanent restart/checkpoint file interval ( s ). */
-(PID.TID 0000.0001)                 3.110400000000000E+08
+(PID.TID 0000.0001)                 3.110400000000000E+07
 (PID.TID 0000.0001)     ;
 (PID.TID 0000.0001) chkPtFreq =   /* Rolling restart/checkpoint file interval ( s ). */
-(PID.TID 0000.0001)                 3.110400000000000E+08
+(PID.TID 0000.0001)                 3.110400000000000E+07
 (PID.TID 0000.0001)     ;
 (PID.TID 0000.0001) dumpFreq =   /* Model state write out interval ( s ). */
-(PID.TID 0000.0001)                 3.110400000000000E+08
+(PID.TID 0000.0001)                 3.110400000000000E+07
 (PID.TID 0000.0001)     ;
 (PID.TID 0000.0001) //
 (PID.TID 0000.0001) // Gridding paramters ( PARM04 in namelist )
@@ -4564,4 +4564,439 @@
 (PID.TID 0000.0001) // =======================================================
 (PID.TID 0000.0001) %MON time_tsnumber                =                   360
 (PID.TID 0000.0001) %MON time_secondsf                =   3.1104000000000E+07
-(PID.TID 0000.0001
+(PID.TID 0000.0001) %MON dynstat_eta_max              =   8.9277147421634E-01
+(PID.TID 0000.0001) %MON dynstat_eta_min              =  -1.7866379867105E+00
+(PID.TID 0000.0001) %MON dynstat_eta_mean             =  -1.0031966468948E-04
+(PID.TID 0000.0001) %MON dynstat_eta_sd               =   6.0894644052450E-01
+(PID.TID 0000.0001) %MON dynstat_eta_del2             =   1.1770064131073E-02
+(PID.TID 0000.0001) %MON dynstat_uvel_max             =   3.2086973132876E-01
+(PID.TID 0000.0001) %MON dynstat_uvel_min             =  -6.6369010009227E-01
+(PID.TID 0000.0001) %MON dynstat_uvel_mean            =  -3.5652389247689E-04
+(PID.TID 0000.0001) %MON dynstat_uvel_sd              =   1.4186727363805E-02
+(PID.TID 0000.0001) %MON dynstat_uvel_del2            =   3.4286093281480E-03
+(PID.TID 0000.0001) %MON dynstat_vvel_max             =   3.7414203862316E-01
+(PID.TID 0000.0001) %MON dynstat_vvel_min             =  -4.8568664695223E-01
+(PID.TID 0000.0001) %MON dynstat_vvel_mean            =  -2.6599531389351E-04
+(PID.TID 0000.0001) %MON dynstat_vvel_sd              =   1.3751854554160E-02
+(PID.TID 0000.0001) %MON dynstat_vvel_del2            =   3.3711378913082E-03
+(PID.TID 0000.0001) %MON dynstat_wvel_max             =   1.9686419596672E-04
+(PID.TID 0000.0001) %MON dynstat_wvel_min             =  -1.4509938405268E-04
+(PID.TID 0000.0001) %MON dynstat_wvel_mean            =   5.6557267751442E-12
+(PID.TID 0000.0001) %MON dynstat_wvel_sd              =   8.8989964738307E-06
+(PID.TID 0000.0001) %MON dynstat_wvel_del2            =   2.5193221213711E-06
+(PID.TID 0000.0001) %MON dynstat_theta_max            =   3.0334209994960E+01
+(PID.TID 0000.0001) %MON dynstat_theta_min            =  -3.0877599521651E+00
+(PID.TID 0000.0001) %MON dynstat_theta_mean           =   3.5424407291146E+00
+(PID.TID 0000.0001) %MON dynstat_theta_sd             =   4.3273894552029E+00
+(PID.TID 0000.0001) %MON dynstat_theta_del2           =   1.5023745354283E-01
+(PID.TID 0000.0001) %MON dynstat_salt_max             =   3.8140974001872E+01
+(PID.TID 0000.0001) %MON dynstat_salt_min             =   2.4316117289192E+01
+(PID.TID 0000.0001) %MON dynstat_salt_mean            =   3.4720470120394E+01
+(PID.TID 0000.0001) %MON dynstat_salt_sd              =   3.0863535506332E-01
+(PID.TID 0000.0001) %MON dynstat_salt_del2            =   3.5978144131677E-02
+(PID.TID 0000.0001) %MON advcfl_uvel_max              =   1.9061063452962E-01
+(PID.TID 0000.0001) %MON advcfl_vvel_max              =   1.3821036300980E-01
+(PID.TID 0000.0001) %MON advcfl_wvel_max              =   2.2780229171792E-01
+(PID.TID 0000.0001) %MON advcfl_W_hf_max              =   3.2586009826556E-01
+(PID.TID 0000.0001) %MON ke_max                       =   2.4759000210703E-01
+(PID.TID 0000.0001) %MON ke_mean                      =   1.0500047036893E-03
+(PID.TID 0000.0001) %MON ke_volint                    =   2.4187778067303E+14
+(PID.TID 0000.0001) %MON ke_volmean                   =   1.7866354584132E-04
+(PID.TID 0000.0001) %MON ke_vol                       =   1.3538171960824E+18
+(PID.TID 0000.0001) %MON surf_Corr_theta_mean         =   1.0811417701261E-08
+(PID.TID 0000.0001) %MON surf_Corr_salt_mean          =  -3.6921231962047E-10
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // End MONITOR dynamic field statistics
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // Field Current uVel   at iteration        360
+(PID.TID 0000.0001) // CMIN =         -6.636901000922730E-01
+(PID.TID 0000.0001) // CMAX =          3.208697313287637E-01
+(PID.TID 0000.0001) // CINT =          3.646517894151988E-02
+(PID.TID 0000.0001) // SYMBOLS (CMIN->CMAX): -abcdefghijklmnopqrstuvwxyz+
+(PID.TID 0000.0001) //                  0.0: .
+(PID.TID 0000.0001) // RANGE I (Lo:Hi:Step):(   1: 192:   1)
+(PID.TID 0000.0001) // RANGE J (Lo:Hi:Step):(  32:   1:  -1)
+(PID.TID 0000.0001) // RANGE K (Lo:Hi:Step):(   1:   1:   1)
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) K =   1
+(PID.TID 0000.0001)                I=10      I=20      I=30      I=40      I=50      I=60      I=70      I=80      I=90      I=100     I=110     I=120     I=130     I=140     I=150     I=160     I=170     I=180     I=190
+(PID.TID 0000.0001) |--J--|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|12
+(PID.TID 0000.0001)     32 wuttttuuutttsux...........................................s..tt.mlllmmnppm.................rrqppqrqqpponmllmnponqvwvutttttsssssrsutsrrpoonmllmnno.........uvvuussssstttuuuuvvvuvvwxyxxwwwxxwwvvv
+(PID.TID 0000.0001)     31 uuttttuuuttsrt............................................s..v..mllmmmnpq.................prqppppqqqpponmllmnponqvvuttttttsssssrsttsrrqponmmmnnp...........uvvusssssttuuuuuuuuvvvxyyxxxxxyyxwwvv
+(PID.TID 0000.0001)     30 tsssssttssrrqr.............................................ts..vmllmmmkik.................prpppopqqqpponmlllnponqvvutsstttssssrrsttsrrqponnmnno..............vvssssstttttuvvvutttuvxyyxxxyzzyxxw
+(PID.TID 0000.0001)     29 srrrrrrrqqqqqr.............................................tntuumlllmnj.......r..........oppooooopqqpppomlllnoonrvvutsstttssssrrsttsrrqponnnno................uttsrsssssstuuttuuuvvuvxxxxyzzzyyw
+(PID.TID 0000.0001)     28 qqqqqqqppppqp...............................................nstslkklmmmpo.....ss.........oqonnnnopqqqqponmmmmooorvvutsstttssssrrrttsrrqponnnnp.................usrrssrrssssuttqrqrttuvvwwxyzzzyx
+(PID.TID 0000.0001)     27 qqqpppppppqpp..............................................noqrqlkjkjjmppn.....r.........oonnnmmopqqqqpponmmmooorwwusrstttsssrrrstutsrqpoonnn..................tsrrrrqssssstrrtuturttstvvxyz+zyx
+(PID.TID 0000.0001)     26 ppppppppopon..........................ts...................mpoookjjjiknppqpqqqqr..........nonmmnoqrrrrqpponmmoooswwusrstttsssrrrstutsrqoonnno...................srrqppqqrprqssrrqqpqrsstuvwy++zz
+(PID.TID 0000.0001)     25 oooooonnnnm...........................qqr.................imnlkkkjkkkmprsutx..r..........monnnnnoqrssrqqqpnmmoooswwussstttsssrsrssvutrqonmnm....................rqqqoonnpttrrrrstuutsrsstuwxyz+z
+(PID.TID 0000.0001)     24 nnnnnnmmlmk...........................pppq......r......okegkjiijkjkllnqqvvrts............lqnnnnnprsttsrrqpnmmoooswvtsssttttsrrrrvsuvtsqompql....................ssqpoopopsttssrpqpqqttssstuvwxxx
+(PID.TID 0000.0001)     23 nnnnnnmlllj.........................qqrrqpq....pqr.....jgfijhhijjjkklmqqu...pq...........pqqpoooprtuutssrpnmmooosvvtssttuutsssrrsvstutrom..k...........rrs........rotssqrprrrqrrrrqqqssrsttuwyyx
+(PID.TID 0000.0001)     22 mnmmmmllkkl.......................nmprssrqp...nopq.....ifhm..jijkkmnnnpsxt...qqs..........qpqppoprsuvutsqpnmmoppsvutrsttuutsssrq.swtutsmnqom..........rsqqnnn......qnkwsytsrrqr......rrsqstuwyyy
+(PID.TID 0000.0001)     21 klllllkkkkn.......................lhfhlnpqp...mnoop....gfjm..lkkkjlmllmqwz....qr..rrrr.....qqqppqrtuvvtsqommnpppsuusrrsuvvtssrqp..rpoppn..oos........qrrpqqpoknp.....jtk..tqrr.........rqrtuwwwy
+(PID.TID 0000.0001)     20 ijjjklllmno........................ha-diloo...lkllm....egl..onmmkkmoonouww.......rrssr.......pqqrsuvwvusqommnpppsuusrrsuvutssrqp.....rp..qpps..ss..rprsrrrqrrrrpqtwxwrur..rqsq..........rrtuwwwy
+(PID.TID 0000.0001)     19 hjjkmnoopqrr......................pnighjmnoqqomllln..pmjn..qppppkjlnkmp..v.....pqrrrsr...qsppoqrstuwwvusqnmmnpppsuusrstuuutrrrqq.........npq..tsqqqrsssssrrqpppponnlosrqs...r...........rrtvwxyy
+(PID.TID 0000.0001)     18 ggghklnnopqrrrsstts...............ssrqppppqrsttsrr...rqp...ssrrrqrstvtqvutqq...trrrrrrpqoprnqprttuvxxvtsqnmmnpqqsuusssuvuusrrrrq......rrqqr..stroqssssttssrqqqppopqqpppqrs..............rrsvvwyz
+(PID.TID 0000.0001)     17 gdcbdeghijkmnopqrrs..............rrqrrrqrrsuwxxwwwv...r....stsrs......ipqqrqrqrrqrrrrrsp..qorqsuvvwyyvtsqnmlnpqqtuusrsuwvusrrqqq......rpo...sstrortuttutttrqqqqponnonprrrq...............rstuvxy
+(PID.TID 0000.0001)     16 njf-bbddeffghijlnoq.............opnmoqqrsstvvvvuuvvt..s......r......qvvuptsurrsrrrrrrrr...sntrtuvwxzywusqnllnpqrtuusrsvvvvtssttr.......po...rstrpsuvutttutsqqqqpnnoooooqqs...............rtttuwx
+(PID.TID 0000.0001)     15 ...lgfffggggghjkmnoq...........pnnmmqstuuvvvvuttssssr.......ors.....q...ttrx..rrrrrrqrr....lurtuwwxyywusqnllmprrsutsrsuvvutsr..........rq..trttrqsvvuuuuutsqqqqpnmnoooqrprs..............qqstvww
+(PID.TID 0000.0001)     14 ....mlkkkkkkkklmnoooq..........ppoprtvwwxwwvvuttsrqrrr.....nnrts..........sptrrqrrrrrr.....trqtvwwxyywusqnllmprrsttsrssuuussrrs.........q..rrstqqtvvvuuuutsqqppommmonnooqqr..............rrstvvw
+(PID.TID 0000.0001)     13 ....ppooooonnmnnoooop..........rsrqtuvvvuuuttsssrqqqqqppppoq..tt...........surssrsrr........sqtwwwyyywusqnlkmprrsttsrrsuvvtsrrqr...........qqssqqtvvvvvuutrqqppnmlmoonoprrrs............sqqssuvv
+(PID.TID 0000.0001)     12 ...oqrqqqpppponnnoonr..........stpprsrrqqpppppqpppopppppppqttsst...........ps..rqrrr......t..uvwxwyzxwusqnkkmprrsttsrrtvvvtrqqqr..........rqqssqqtvvvvvvussrqqpnmlmnonnpprqsrssst.......rqprstuu
+(PID.TID 0000.0001)     11 ...ssrqqqqppoonnnnnm...........rr..opppoonnooooooooooooppqrtts.............ssst...........rr..wvwxzzxvtrpmkjlprstuussstuvvtrqqqq.........trqqrrqqtvvvvvutssrqqpommmnmmmoorrrtssts......sppqrsttu
+(PID.TID 0000.0001)     10 ...ttrrqqqqpppoonnnl..........oq..ooppppoooooopooooooopppru...............................ontwvwxxzzxusrpmkjlpstuuutssstuutrrrqq........utrqqrrqrtwwvvvutssrrqpommmnmmnnpqsrsssssrrrqqtoppqrsstu
+(PID.TID 0000.0001)      9 ...utssrrrrqqqpponomm........opr..qqqrrrqqqqqqqqqqqqpppmru................................txqqtvwxyzxusqomkjlpstuuutssstvvutssrr.......usqqpprqpruwwvvuutssrqqponmnnnnompostrrsrqqqssrqpqqrssstu
+(PID.TID 0000.0001)      8 ..quttsssrrqqqqpponnk........pqq..rrrrssrrssssrrrrrqqppj....................................uwxuvxyzxurqomkkmpstuuuusstvxvvvvvsr....tuvtrqpoprqpruwwvuuutssrqqponnnnnnompopopopqrrsppqrqqqrrsstu
+(PID.TID 0000.0001)      7 qouvutssrrrqqqppppooh.......oppp..srrrsssssssrrqqqqqqooi.......................................uuxxyxurqpmkknqstttsstsuvt.....sr..stsssrrpooprporvwwvuuuttsrqqponnnnononnnmolsnqppooopppqqrrsstu
+(PID.TID 0000.0001)      6 rsuuutsssssssrqqqpoplm......rqppnmrrrrrsssssrrqqpppppopi.......................................vsuuwwurqomllnqssts..stur........stssttrqqoooprporvxwuuutttsrrqpoonooooonnonnnnooponmnoopppqrrsst
+(PID.TID 0000.0001)      5 rsttttssstttttssrqpppm.....npqqqqrsssrrssssssrrrrrrqqppk.....................................x+ysssvwurpomlmorsstt...ts.........ttttsrqpponoprporvxwuuuttssrrqqpooopoooonnnnnoooonnnoooooppqrrst
+(PID.TID 0000.0001)      4 rsstttttttttttttssrqpoppmnlorrrrrsstssssssssssssssssrrrn.....................................qv..stuvtrpomlmorstts..............tttsrqqponnnpqporvxvuutttsssrrqpoopppppooonnnnooonnnoooooopqrrst
+(PID.TID 0000.0001)      3 sssstttttutttttuutsrrqqqqqpqssssttuutttttttttttttttttttrrsrrqqq.............................uqtu..vvvurpommmorstt...............sssrrqponmmnoqporvxvuttttttsrrqqppppqqpppponnnnoopsrpooopqqrrsst
+(PID.TID 0000.0001)      2 rsssstttuuuuttuuuuuttssrqqrsttttuuuuutuuuuuuutttttuuuuutttssrqqq............................rqtu..vvvusponmmorttt...............tssrqpoommlmopporvxvutttttsssrrqpppqqqqqqppooonoopnnqoppqqqrssss
+(PID.TID 0000.0001)      1 rsssssttuuuvvuvvwwwvvuuutuuuvvuuuuuuuuuvvvvvuuttuuuvvuuuutttssrq............................sstu..vvvusponmmortts...............tsrrqponmllmopporvwvutttttssssrrqpqqrrrrqqpppopppq..ppppq..rrrst
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // END OF FIELD                                          =
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) 
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // Field Current vVel   at iteration        360
+(PID.TID 0000.0001) // CMIN =         -4.856866469522327E-01
+(PID.TID 0000.0001) // CMAX =          3.741420386231580E-01
+(PID.TID 0000.0001) // CINT =          3.184550687316261E-02
+(PID.TID 0000.0001) // SYMBOLS (CMIN->CMAX): -abcdefghijklmnopqrstuvwxyz+
+(PID.TID 0000.0001) //                  0.0: .
+(PID.TID 0000.0001) // RANGE I (Lo:Hi:Step):(   1: 192:   1)
+(PID.TID 0000.0001) // RANGE J (Lo:Hi:Step):(  32:   1:  -1)
+(PID.TID 0000.0001) // RANGE K (Lo:Hi:Step):(   1:   1:   1)
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) K =   1
+(PID.TID 0000.0001)                I=10      I=20      I=30      I=40      I=50      I=60      I=70      I=80      I=90      I=100     I=110     I=120     I=130     I=140     I=150     I=160     I=170     I=180     I=190
+(PID.TID 0000.0001) |--J--|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|12
+(PID.TID 0000.0001)     32 kkkkjiiiiiiijp...........................................nn.qn..nppoopoql.................pqqqqrssrqpoonljhhjlkfeinoooopqrrrrqqqutrpnnmlkjigfegk..........mpnoooppqqrstuuuuuuuuuvvutsrqqqqppooon
+(PID.TID 0000.0001)     31 mmmllkkkllmllo............................................k.r..nnooooprup................nrqqrrsstsrqppoljhhjmkfejnppoopqrrrqqqqvusqonmlkjihfgk.............mnnopqqssuvvvuutstsstttttsrrrqpoonmm
+(PID.TID 0000.0001)     30 nnnnnnnmmnnmmo............................................kin.nkmnopprk..................nrqrrsstutsrqqpmjhhjlkfejoppoopqrrrqpppvvtrpnnmkjigfg...............lmoqqrttuvvvutrqrssstsqrrqrrqpomlll
+(PID.TID 0000.0001)     29 ooooooonnooon..............................................jnmmlmnoqqsl......op.........mqqrsstuvvutsrrpnkhhjlkffkoqppppqqrqppoowwurponmlkiggk................lppqsuuuuuutsqrqpppqqqqqpqqqqomkjk
+(PID.TID 0000.0001)     28 pppppppoooopn..............................................lpnmlmnprrrtyr.....no........lpqstuuvwwvvtsrqolihilkfglpqqppppqqpoonovvusqonmlljhg.................npqqtutuustutqpnonporrqppqpqqpmkjk
+(PID.TID 0000.0001)     27 rrqqqqqqppqn..............................................msrqpommopqqqqtu....no.........mrsuuvwwwwvutrqpmjhikjgglpqqppppppoonnotuusqponlljgk..................oqrtttvusqqrpoopnomonoonoopqqnkjk
+(PID.TID 0000.0001)     26 rrrrssssqqm..........................onn..................otsrrqllnopqrrqutp.po..........lssuvvvvwwvtsrqqmjhhkjghmqrqqppoooonnnortusrponlkjf...................oqqsstwuqqprpponnoopoonnoppqqokij
+(PID.TID 0000.0001)     25 ssrrssssrsn..........................omml................mzvutssklllnppoqprt............jssuuvvuvvvutsqqqnkhhkjghmqrrqpoooonnnoppttsrqomkkif...................oqrrqquutsppooooponmnnnnooppppmji
+(PID.TID 0000.0001)     24 tsssssstttm..........................omllm.....oo.....mttvzwuttummlkmnrow..op...........jstuuvuuuuutsrqppokihkjhinrrqpooooonnoopqqtsqpomi.ff.....................rqqqtrstonpppppoppqnnnoooooonkj
+(PID.TID 0000.0001)     23 uttttstttsm........................rvuqnmno...pqoo....ntqtq.pttummljkmplw...qq...........lsssuutttttsrpppnkiikkhjorrqoooooonnopqtqprppolk.dd..........onno........trksvnrsqoppo.....oonononnnmkj
+(PID.TID 0000.0001)     22 vvuutttssqm......................qux+zvqppn..otsqp....knoro.lqrtnonlmmnktm...pqp..........lprsuutstsrqqpomkiikkijorrpnnooonnnpqq.strqrmh.lhc.........mllkjihn.......yqvs.npopo........omnnnopmll
+(PID.TID 0000.0001)     21 vuutssrqpop.......................pptvusrqo..mrrrqo...hjmn..lnoqnnmjjjmkpp....r..oooop......oqtutstsrqppomjhikkijorrpooooonnopqr....rrk..khdm.......ljjjjkkjjkmr....rvws.oqnoo.........nnmmnonml
+(PID.TID 0000.0001)     20 ussrqpooono.......................nddilnppo..kmnooo...gil..llkmnmnookkn.uk....s.oopoop......nqsttsttrqppolihhkkikorrpooononnoqrr........kljk..rqo.mkjjjjklmnoooprtuwpqto...po..........onmmonlml
+(PID.TID 0000.0001)     19 uttssrqqpppp.....................pja-dhlnnmkihhikm..nljl..nmljllihjhcjm.um....pqopppno..nqjnnpqssrstsqppnlighkkikorrppponnnnoqrr........ilk..osrmjjllkjjlmnnnoprqqqrtsurn..............oonloolll
+(PID.TID 0000.0001)     18 tuvvusrrrrsssrrrqqp..............rnighkmnnmkkjjjjm...mn...onllmm.....hojolqp..qoppppnprm.plolnorqqrtsqppolighjkjkorrqpponnoopqrr.....onoj...kptqlikllkjjlnooooprsstuuroqpp..............onmmolll
+(PID.TID 0000.0001)     17 rsttqnmmnpqsssrrrqq.............prnjiiklmnnnnnnmmmm..no.....kl.o.....eknrpooqopoppponon..okplmnqqpqssqppoliggjkjlprrqpponnooqsrs......mok..ljpspkikmlkkkmnooooqrrrsttsqooo..............oonnmlkk
+(PID.TID 0000.0001)     16 ..uplhggijlnopoopqr............nnmifefhjlmnnnmlllllm........ik.....ij..hlpps.pqpoppooop...eslnnqrqpssqppolhggjlklprrppppnnopq..r......knl..kkorokjlmlkjkmoppooprrrstsrnspp..............ooonlkkk
+(PID.TID 0000.0001)     15 ...oifeefghjklmnnpqr..........nkjigdcegiklmmlkjjkkklm......kjkn..........lpn.popoppopo....hpmnoqrqqssqqqolhggjllmprrppoonnopq..........ll.mikoqnkjlmlkklmopoppqrrqrsrrqpopn.............ppmlkjjj
+(PID.TID 0000.0001)     14 ...lhfffgghijklmnoqrq.........ljjjjgghjlmmmllkkkkkkklo....jj.mno..........osnpoppopn.......klooqrqqstrrqolhffillmprrqqpoooopqpq...........nklopmjjlmlkkmnoppppqqqpqrrrpqppn.............pqmljjij
+(PID.TID 0000.0001)     13 ...jhhhhhijjkklmmnorp.........kkkkmkjjlmmmlkkklllllllmmnnoon.nno..........mqn.nqoopn........jkoqqqrttsrqpliffillmprrqppoooppqqqr..........nmmnoljjllllmnnoppppqqqppqqqqqnono...........pponljiij
+(PID.TID 0000.0001)     12 ..lhiiiiijjkkllmmnnr..........kll.qlkkkllkjijjkkkkllmmnnnprppo............nnp.q..........oj..nlppqrutsrqpmigfilmnprrqpooooopqrrr.........onnmnnkijlllllnopppppqqqppqrqqprpoopopqn......ponmkihij
+(PID.TID 0000.0001)     11 ..kjjjjjjkkklllmmmms..........kl..nkjkkkjihhiijjjkllmnnopqp..............................pol.olpoprtusqqpmiggjmnnprrponnnoppqrrr........ommmlnnjhjklllmnoopppqqrqpppqpqpropopopoo.....qpnmljhhij
+(PID.TID 0000.0001)     10 ..ikklllllllmmmmmnmu.........lln.ljkkkkkjiiiijjkkkllmnorrq...............................lihilnonoqttrppomifgknnoqrrpnmmnopqrrrr.......ommmllmmjhillllmnoopppqrrqpppppprprppoooponqqorqnmkjihhij
+(PID.TID 0000.0001)      9 ..hkmmnnnnnnoooonoops.......mlmn.lklllllkkkkklllmmmnnonv...................................ljjlnnoprsqpppmifgknoopqqomlmnoqrrrrr......ommmmllmmigikmmmmnoopqqqrrqpoppqpsoqmnonnnooonmlmlkjihghjk
+(PID.TID 0000.0001)      8 .hhlnoooooooppopoopow.......llmn.kkmmmlmmmmmmnnnoonnopmv......................................nlooprrpoopmifgknonoppomlmm....npq...omlllmmlklnmhfilmmmmnoopqqrrrqpoopqprppmloqknnomllkkiihgghijk
+(PID.TID 0000.0001)      7 ihjmnooooooopqqqqpqnx......lklmo.ikmmmmmnnnooooopppooqlv......................................smonoqqonnomjghknnno.nopmn.......p.omnnmmlllkjknlhfilmmmnnopqqqrrrqpoopppqpookomlllkjklkihhhghhikl
+(PID.TID 0000.0001)      6 kklnoooooppppqqrrrrqqt.....jlmmkiilmmmmnooooooooppqppqmu......................................skmloqpommnmkhhkmnnp..opl.........nnnnmmlkkkjjkmlgfilmnnnnopqrrssrqpoooooooonmmmlllkjlnkiihhhhijkl
+(PID.TID 0000.0001)      5 klmnooooppqrrrsssrssrt....kkmnnmllmmnnnoopppppppqqrqqqns....................................lfs.poqqpnmlmmljikmnpp..............ooonnmllkjiikmlgeilnnnnooprssssrqpooooonoonnmmllkiijmljjiijjjklm
+(PID.TID 0000.0001)      4 lmnnoooppqrrsssstssssspnmnmnopoommnnooopqqrrrrssttssrspq....................................lkp..rrqpnmkllkjjkmoq...............ppoonmllkjiijmlgeimnnnoopqrssssrqponnnnnnnnmnnmlkmnnnljkkklllmmn
+(PID.TID 0000.0001)      3 mnoooppqrrsssssstssrrssrrqppqqppoopppqqrssttuuuuuuuuttrqponnooq............................mkmmp.rqqonlkjjjjjlnpq...............qqponmmlkjhijmlgeimnnnoopqrssrrrqponnnnnnmmmnnnmmmjmnmllnmmmmmno
+(PID.TID 0000.0001)      2 oopppqqrsttttttttttsrrrqpppqqqqqqqrrrstttuuuvvvvuuuututtsrqqqpqq...........................onmlp.rppomliiiiijlopp..............nrrqoonmmkjhhjmkfeimoooooprrrrrrrqpoonnonnmmllmmnml.pnmmnn.onnnoo
+(PID.TID 0000.0001)      1 opppqrrstuuuuuttttttsqppqqqpppposssttuvvuvvvvwwwvuutttttsrqqqqqq............................oln..rqqpmkhghghjloqp..............nsrrpoonmljhhjmkfeinoooopqrrrrrrrppooooooonmlllmnno.pnnnon.n...no
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // END OF FIELD                                          =
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) 
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // Field Current theta  at iteration        360
+(PID.TID 0000.0001) // CMIN =         -3.087759952165066E+00
+(PID.TID 0000.0001) // CMAX =          3.033420999495961E+01
+(PID.TID 0000.0001) // CINT =          1.237850738782395E+00
+(PID.TID 0000.0001) // SYMBOLS (CMIN->CMAX): -abcdefghijklmnopqrstuvwxyz+
+(PID.TID 0000.0001) //                  0.0: .
+(PID.TID 0000.0001) // RANGE I (Lo:Hi:Step):(   1: 192:   1)
+(PID.TID 0000.0001) // RANGE J (Lo:Hi:Step):(  32:   1:  -1)
+(PID.TID 0000.0001) // RANGE K (Lo:Hi:Step):(   1:   1:   1)
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) K =   1
+(PID.TID 0000.0001)                I=10      I=20      I=30      I=40      I=50      I=60      I=70      I=80      I=90      I=100     I=110     I=120     I=130     I=140     I=150     I=160     I=170     I=180     I=190
+(PID.TID 0000.0001) |--J--|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|123456789|12
+(PID.TID 0000.0001)     32 rsrrqpoonnonoon..........................................ee.moo.srppoooomk................lmnoppqqrrrrsstuvvwxwwwwxxxxxxxwwvvuuurstuuuuvvvwwwxxxy........wwwwvvuutsrqponmllkkjjjiijjjklmnopqrrst
+(PID.TID 0000.0001)     31 stssrqqpqpppoo...........................................gj.oo.orponmlmhk................jmmnoopqqrrrssttuvwwwwwwwxxxxxxxwwvuuuurstuuuuvvvwwwxxx..........wwvvvutsrqpommkkjiihhhgghhhijkllmopqrs
+(PID.TID 0000.0001)     30 tttssssrrrqppp............................................lmp.qqqponkhjji................kllmnoopqrsssstuuvvwxwwwwxxxxxxxwwvuuuuqstuuuuvvvwwwxx.............vuvvtsqpomlkjihhggggffffgghijjklnoqr
+(PID.TID 0000.0001)     29 uutttttssrrrqp............................................korrssqpomjig......aa.........ikkklmnopqrsssttuuvwwwwwwxxxyyxxxwwvutvtqsttvuvvvvwwwx...............vuutrponlkihggggfeeedeffffghijjlnpq
+(PID.TID 0000.0001)     28 uutttttssrrrq..............................................qssttqpomkikcc....aaa........hjjkllmnoprssttuuuvwwxwwwxxxyyyxxwvuutvsqrstuuvvvvwwxx................ttsqpnmkjhggffeeaa-adeeefgghhijlnp
+(PID.TID 0000.0001)     27 uutttttssrsrp.............................................ortuuuomkhfecdbb....aa........giijjklmnpqssttuuvvwwxxwxxxyyyyxxwvutturqrstuuvvvwwww.................usqpomljihgffe-aaaaa-deeeffgghikmo
+(PID.TID 0000.0001)     26 uuutttttssrq.........................ttu..................rtuuuunljhggedccaaaaaa.........ihijjklnoqrstuuuvvwwxwwxxxyyyyxxwvutttqqrstuuvvvwwww..................rqonlkjhgfadaaaaaaaaaaeffffgghikn
+(PID.TID 0000.0001)     25 uuuuutttssr..........................tvvv................suvvvvvnljhggfefeeb.ba.........gighhijlmoprstuuuvvwwxxxxxyyyyyxwwvuttsqqrssuuvvwwww...................sqomkiihhfgfaaaaaa--aaaeffffghijm
+(PID.TID 0000.0001)     24 vvuuuuttssr..........................uuvvu.....ts.....rsuuvwwwvwmlkigggffaa-a...........hggghhiklnoqstuuvvvwwxxxxxyyyyyxwvvutvrqqrsstuvvwwww...................tromlkjhgfeaaaaaffffeaabeeffggikm
+(PID.TID 0000.0001)     23 vvvuuutttsr........................uvvvvwwv...vvvv....uuvvvwwwwxmlkjhhgde..aaa..........ffgfghijkmoqstuuvvvwwxxxxxyyyyyxwvuuturqnrstuuvvw.ww..........qsrp.......onkjjigeaaaagaaaaaaaaacfffgghjl
+(PID.TID 0000.0001)     22 vvvvvuuuutt......................uuvvvwwwxw..vwwww....vvwww.xxxxmlljiiigea..aaaa.........ggfgghiklnprtuuvvwwxxxxxyyyyyyxwvuuttrpjostuvvwwwxw.........qttssppp.....lljghggfaaaaa.....aaaaaeffggik
+(PID.TID 0000.0001)     21 wwwvvvvuvuu......................vvvvwvwxxx..wwwwxx...vwwxx.xxxxmllkkigghb...aaa.aaaaa....efgggijknprtuvvvwwxxxxxyyzyyyxwvuutsrp.jqtuvvv.wwwx.......rstsrrrrqopo....jihe.ahaga........aaaefffghj
+(PID.TID 0000.0001)     20 wwwwwwwvwwx.......................vwwwwwxxx..wwxxxx...wxxx.xxxyxmlkkjijhha....a.aaaaaa......egghikmprsuvvvwwxxxxyyzzzyyxwvuuusrp....suv.wwxxx.xwv.ttttsssrrqqqpnnlkjjiih.a-aaa.........aaffffghj
+(PID.TID 0000.0001)     19 wwwwxxxxxxyy.....................vwwwwxxxxxwwxxxxxx.xxxxx.yyyyyymllkkik.da....aaaaaaaa..aadfefghijmorsuvvvwwxxxxyyzzzyyxwvuuusrp........wwxw.xxxwvuutssrrrsrrqonmkjiiihga..aa..........aabefffhj
+(PID.TID 0000.0001)     18 xxxxxxxxyyyxxxxxxyx..............wwwwxxxxyxxxxxxyy..xxxy..yyyyyznmlikkklgaaa..aaaaaaaaaaabcefffgijmorsuvvwwwxxxyyyzzzyyxwvuuusrp.....ruvvww.wxxwvvuutsssssssrqonlkkjihhfaa.............aaadeffhj
+(PID.TID 0000.0001)     17 xxxwxxxxxxxxxxxxxxy.............xwxxxxxyyyyxxyyyzyy..yy...yyyyyz.....iiidaaaaaaaaaaaaaaa.acefffhhjloqsuvvwwwxxxyyzzzzyyxwvvuusrp.....ruvv..vxyxwvvvutsssstttrqonlkjiihgbaa..............aafefghj
+(PID.TID 0000.0001)     16 xxxwwwwwwwwwwwwwxxx............xxxxyxyyyyyyyyyyyyzzy.yy.....yy.z...ihiiifefdbaaaaaaaaaa..abeeffgijloqsuvvwwwxxyyyzzzzyyxwvvvtsrp......uuv..wxyxwvvvutttttttusqonlkjiigcgaa..............a-fffghj
+(PID.TID 0000.0001)     15 ..xxwwwwwwwvvvvvwwxx..........yxxxxyxxyyyyxyyyyyyzzyy......yyyy....hh..hghfa.aaaaaaaaaa...beeffgijlorsuvvwwwxxyyyzz+zzyxwvuut..p......uvv.uwxxxwvvvutttttuuwsqonlkjiihhfaaa.............adeffgij
+(PID.TID 0000.0001)     14 ...xxwwwwwwwvvvvvwwwx.........yxxxyyyyyyyyyyzyyyyzzzyy....yyyyyy.........cfdaaaaaaaaaa....bdefeghjmprtuvvwwxxyyyzz++zzyxwvuutsq........vu.uxxxxwvvvuttuuuuuvsqonlkjjihgfaaa.............agffggij
+(PID.TID 0000.0001)     13 ...xxwwwwvvvvvuuuvvww.........yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.yzz..........ecaaaaaaaa.......beeeghknprtvvvwwxxxyyzzz+zyxxwvuuusqp..........xxwxwwvvvuuuuuuuuvsqonmkkjihhfaaaa...........aceffghik
+(PID.TID 0000.0001)     12 ..xxxwwwvvvuuuuutuuvv.........yyyyyyyyyyxxxxxxxxxxxxxyyzzzzzzzzz..........dbb.aaaaaa.....ab.cddfhknprtvvwwwxxyyyzzz+zyxxwvvuutrp.........xyxxxwwvvvuuuuuuuuutqpnmlkjihhgfaaaaaaaa......acfffghjk
+(PID.TID 0000.0001)     11 ..xxxwwvvvuuuttttttt..........yyz.xxxxxxxxxxxxxwwwwwwxxyzzzzzz............aaaaa..........acd.cefhjnqstvvwwwxxyyzzzz+zyyxwvvvuurp........uwxxxwwwvvvvuuuuvvvutrpomlkjihggeaaaaaafa.....aefggghijl
+(PID.TID 0000.0001)     10 ..xxxwwvvvuuutttsssr.........zyz.xxxxxxxxwwwwwwwvvvvvvwxyyz..............................aabccefhjoqstvwwwxxxyyzzzz+zyyxwwvvuusq.......tuvwxwxwvvvvvvvvvvvvvusqonlkjjihgfeaaaaaaaaaaaahfggghhjkl
+(PID.TID 0000.0001)      9 ..wxxwwwvvvuuuttsssrs.......yyzz.wyxxxwwwwwwvvvvvuuuuuvwxy...............................aabcdeefmpqsuvwwwxxxyyzzzz+zyyxwwwwvutr......qrtvwwwxwvvvvvvvvvvvvvusqpnmlkjjigfeaaaaaaaaahgfffgghiiklm
+(PID.TID 0000.0001)      8 .wwxwwwwwwvvvuuttsssq.......yyzz.wxxxxwwwwvvvvuuuuttttuv...................................abdfeloqqsuvwwxxxxyyzzzzzzyyxxwwvvuvr...mmoprtvwwwwwvvvvvvvvvwvvvutrponllkjihgeeddcdebacfefgghhijjkln
+(PID.TID 0000.0001)      7 vwwwwwwwwwwvvvuutssrp......xxxyx.wxwwwwwvvvvvuuutttssstu......................................ilnpqrsuvwwxxxxyyzzzzzzyyxx....uvr.klnopqrsuvwwxwvvvwwwvvwwvvvutrqonmllkjihgfffbffefefffgghijkklmn
+(PID.TID 0000.0001)      6 wwwwwwvvvvvvwwwuttssrr.....xxxxwwwwwwwvvvvvuuuuttsssssst......................................jnpqrssuvwwxxxxyyzzz.zyyyx.......rlmnoppqrsuvwwwwvvvwwwwwwwwwvuusrponmllkjihhhgghggggghghhijkklmno
+(PID.TID 0000.0001)      5 wwvvvvvuuuuuttttttsssr....wwwwwwwwwwvvvvvuuuuuuutsssrrss....................................dfdmqqrstuvwwxxxxyyzzy..zyy.........nnoopqqrsuvwwwwvvwwwwwwwwwwvvutrqponmmllkjjiiiiiiiiiiiijjkllmnop
+(PID.TID 0000.0001)      4 vvvvuuuttsssrrrrrrrrsstttvvwvwvvvvvvvuuuttssrrrrqqqrrqrr....................................fhm.kprstuvwwxxxxyzzzy..............ooppqqrrtuvwwwwvvwwwwwwwwwwvvuusrpoonmmlllkkkjkjjjkkkkkklmmmnoop
+(PID.TID 0000.0001)      3 vuuuttssrrqqpppppppprstuvwwvvvvvvvvuuttsrrqqqpppooopppqrrrssrss............................cgjlk.orstuvwwxxxxyzzz...............ppqqqqrrtuvwwwwvvwwwwwwwwwwvvuutrqpponnmmmlllllkkkjllllmmmnnoopq
+(PID.TID 0000.0001)      2 vuutsrrqppoonnnnmmnnoqrsttuuuuuvvvuttsrqqpoonnnnnnnnnoopqrssrrrs...........................ejlmm.prsttuvwxxxxyzzz..............rpqrqqrrstuvwwwwwvwwwxxxxwwwvvuuusrqqpoonnnnmmmmmlmmmmmnnnooppqqr
+(PID.TID 0000.0001)      1 uutsrqqponmmmlllkkklmnoqqrrsstttttssrqpoonmmmlllllllmmnnoppqrrrr...........................ilnnn.prstuuvwxxxyyzzy..............rpqsrrrrstuvvwwwwwwwxxxxxxwwvvuuutsrrqqppooooooonno.oooopp.qqqqqr
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // END OF FIELD                                          =
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) 
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // Field Current etaN   at iteration        360
+(PID.TID 0000.0001) // CMIN =         -1.786637986710481E+00
+(PID.TID 0000.0001) // CMAX =          8.927714742163374E-01
+(PID.TID 0000.0001) // CINT =          9.923738744173402E-02
+(PID.TID 0000.0001) // SYMBOLS (CMIN->CMAX): -abcdefghijklmnopqrstuvwxyz+
+(PID.TID 0000.0001) //                  0.0: .
+(PID.TID 0000.0001) // RANGE I (Lo:Hi:Step):(  -2: 195:   1)
+(PID.TID 0000.0001) // RANGE J (Lo:Hi:Step):(  35:  -2:  -1)
+(PID.TID 0000.0001) // RANGE K (Lo:Hi:Step):(   1:   1:   1)
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) K =   1
+(PID.TID 0000.0001)                I=7       I=17      I=27      I=31      I=41      I=51      I=61      I=65      I=75      I=85      I=95      I=99      I=109     I=119     I=129     I=133     I=143     I=153     I=163     I=167     I=177     I=187
+(PID.TID 0000.0001) |--J--|**0123456|890123456|890123456|890123450|234567890|234567890|234567890|234567234|678901234|678901234|678901234|678945678|012345678|012345678|012345678|016789012|456789012|456789012|456789012|890123456|890123456|890123456|89012345
+(PID.TID 0000.0001)     35 ...qqpppoonnnnnnno..................................................pqqrs......sssssssssrpn.............sstuvvv......uuvvvuuuuuuuuvvvvvvvvvvwwwwwwvuu......rrrrrrrrqqqrrrrrrs..rssrstttttts......ttttttsssssrrrrrrrrrrrrstuvwxxxx...
+(PID.TID 0000.0001)     34 ...rqqqqppooonnnno..................................................pqrss......sssrrrrqpoml.............sstuuvv......uvvvvvuuuuuuuvvvvvvvvvwwwxxwwvvu......rrsrrrrrrrrrrrrrs.......rstttttt......ttttsssrrrrqqqqqqqqqrrstuvwxxxxx...
+(PID.TID 0000.0001)     33 ...rrrrqqqppoonnno..................................................pqrss......srrrqqponml...............stuuuv......vvvvvvvvuuuuuvvvvvvvvvwwwxxwwvvu......rsssrrrrrrrrrrrrs........rsstttt......ttsssrrqqpppoooooooopqrtuvwwxxxx...
+(PID.TID 0000.0001)     32 rrsrrrrrrqqpooonoo................................................qq.rss....ssrrrqqpoomlk................stuuuvvvvuuvvvvvvvvvvuuuuvvvvvvvvvwwxxxwwvvuuuurrrsssssrrrrrrrrrrrs........rrrsssttssssttssrrqpponnmmlllllmmmnpqstuvvwwwxxx
+(PID.TID 0000.0001)     31 ssssrrrrrqqppoooo.................................................rr.ss.ttttsrrrqqponmmk................ssttuuuvvvuuuvvvvvvvvvvuuvvvvvvvvvvwwxxxwvvuuuttqqrrsssssrrrrrrrrrs..........rrrrssssrrssssrrqponmlkjjiiiiiijklmopqrtuvwwxxx
+(PID.TID 0000.0001)     30 sssssrrrrqqqpppoo..................................................sst.uuuvvrrrrqponmlkk................ssttuuuvvvuuuvvvvvvvvvvuuvvvvvvwvvvwwxxxwvvuuuttpqqrssssssssrrrrrs.............qrrssrrrrssrrqpnmkjihgggfffffghijlmopqstvwwxx
+(PID.TID 0000.0001)     29 ssssrrrrrqqqpppoo..................................................tsuuvwxxyrrrrqpomlk......ml.........ssssttuuvvvtuuvvvvvvvvvvvuvvwvvwwvvwwwxxwwvuuutttopqrrssssssssssrr...............qqrrrqqqrrrqpnmkjhfeeedcccccdefhjklmnpruvwww
+(PID.TID 0000.0001)     28 sssrrrrrqqqppppo....................................................tvwxyzzzrrrqqpomlklk....mll........sssssttuuvvttuuvvvvwwwvvvvvwwwwwwwwwwxxxwvvuuutttnopqrsstsssssssss................qqqqp.qqqqpnmkihgecccbbbaaabcdegijklnpsuwww
+(PID.TID 0000.0001)     27 ssrrrrrqqqqppppo...................................................uvwyzz+++rrrqponmlkjkk....ll........ssrsssttuvvsttuvvvwwwwwwvvvwwwwwwwwwxxxxwvuuuttttmnoqrstttttsssrr.................qpqpo.qpqpomkigfedbaaaaaaaaaabdegiijknqtvww
+(PID.TID 0000.0001)     26 srrrrrqqqqpppoo...............................sss..................wwyzz++++qqqqpomljihijjkkklk.........srrrsstuuvsstuuvvwwwwwwwvvwwwwwwwwxxxxwwvuuutttslmoprsttttttssrr..................pppo..pppomkifedcbaa----aaaabcdfghhikosuww
+(PID.TID 0000.0001)     25 srrrrrqqqqqppo................................tsss................wwyyz+++++qqqponlkihhhhij.kk.........srqqqrsttuvrsttuvvwwwwwwwvwwwwwwwwwxxxwwwvuuttttskmmoqsttttttssr...................pppo..ppponmlhfdcba--------aabcdffggimqtvw
+(PID.TID 0000.0001)     24 srrrrqqqqqpppp................................ttsss.....vw.....yxxxxyyzzzzzzqppponlkiihiijkk...........rqppqqrstuvqrstuvvwwwwwwwwwwwwwwwwwxxxwwvvuutttsskklnpstuuttsssr...................pppo..pppooonkhdaa---------aabcddeghilptvw
+(PID.TID 0000.0001)     23 rrrrrqqqqqpppp..............................tttttsss...vwww....xxxxxxyzzzzzzppooonlkjjii..jkl..........srqppqqrstvqqrstvvwwwwwwwwwwwwwwwwwxxxwwvvuttttsr..kmortuutts.sr..........rrrr.......oo....oooookieb---aaaaaaaaabbcdeghjlpsvv
+(PID.TID 0000.0001)     22 rrrrrqqqqppppp......................uu....uuuuutttts..vvwww....yxxxx.yyyyyyypooonnllkkiij..kkll.........srqppqrstupqrstuvwwwwwxwwwwwwwwxwwxxxxwvuuttttsr...lmpstttrrssr.........ssrrrrrr.....o.....ooonhdcbaaaaa.....bbbbcdfgiiloruv
+(PID.TID 0000.0001)     21 rrrrrrqqqqppqp......................uu....uuuuutttts..vvwwww...yyxxx.yyyyyyypoonnnmlkkjij...kkl.ooooo....rrqqqrstuqqrstuvwwxxxxxwwwwwwxxwwxxxxwvuuttttsq....lnpqsrr.ssss.......ssssssssrrrr...rrr....rnhc.aa--a........bbbdfhijloruu
+(PID.TID 0000.0001)     20 rrrrrrrrqqqqqq.......................u.....uvuuttsss..wvvvww...yyxx.yzyyyyxxoonnnnmlkkkjk....l.oooooo......rqqqstuqqqstuvwwxxxxwwwwwwwxxwwxxxwwvuuttttrp.......ppq.sssst.vvu.tssssttttsssrrqqqsrrqqqppnie.a---a.........bbdfhikmortu
+(PID.TID 0000.0001)     19 rrrrrrrrrqqqqqq.....................uv....uvvuutttttuvvwwvvw.zzyyy.yyyyyyyyyooonnnnmll.kk....lnnnopoo..qqqqrqqqrtuqqqrtuvwxxxxxwwwxxwwxxxxxxxwwvvutttsro...........ssst.vvuuuttsssttttttsrqqposrqqpomljgdc..--..........bbceggjmortu
+(PID.TID 0000.0001)     18 srrrrrrrrrqqqqqqrrrrrr..............vv....vvvuutttuuuvvwwww..zzzz..yyyyyyyyy..ooooonmmlkkkl..lmnooponooopqqqqpqrtuqpqrtuvwxxyyxwwwxxxxxxxxxxxwwvvutttsqn........rrssss.uuuuutttttttuuuuttsrqpotsrqponkigdcc.............bbcdefhkoqst
+(PID.TID 0000.0001)     17 .srrrrrrrrrqqqrrqqqqrr.............vvv...vvvvuuuuuuuvvvwwwww..zz...yyyyyyyyy........nmlkkkkklmnnnoponnn.pqppppqrtuppqrtuvwxxyyxxwwxxxxxyyxxxxwwvvutttrqn........rsss..uuuuuutttttttuuuuutsrqpotsrqpomkhfdcc..............bbcdegknqst
+(PID.TID 0000.0001)     16 ..sssrrqqqqqqqqqqqqqqr............vvuu..vvuuuuuuuuuvvvvvwwwww.++.....xx.yyyy......mnnmlkkkkkklmmnnonnm..ppppppqrsuppqrsuwxxxyyxxwwxxxxxyyxxxwwwvvuttsrqo.........sss..uuuuuuttttttuuvvuutsrqpotsrqpomkhedcc..............bbbcehknqst
+(PID.TID 0000.0001)     15 .....srrqqqqqqqqqqqqqqq..........vvuuu.vvuuuuuuuvvvvvvvvvwwwww......wxxx..........oo..mlllk.klmmmnnnmm...pppppprsuppprsuwxxyyyyxwwxxxxxyyxxxxwwvut..ssrq.........sss.tuuuuuuttttttuuvvvutsrqpotsrqpomkhfdccc.............babcfhknqst
+(PID.TID 0000.0001)     14 ......rrrrrrrqqqqqqqqqqq.........vvuuu.vvuuuuuvvvvwvvvvvvwwwwww....vwxxxw...............llkkkklmmnmmm....ppoooprsuooprsuwxyyyyyxwwxxxxxyyxxxwwwvuttt..sr..........ss.uuuuuuuttttttuuvvvutsrqqotsrqqomkhfdcbc.............bbbdfiloqst
+(PID.TID 0000.0001)     13 ......rrrrrrrrrqqqqqqqqq.........vvvvu.vvvvuvvvvwwvvvvvvwwwwwwwvvvvvw.wxx................lkkkkkmlmm.......ppooprsuooprsuwxyyyyyxxwxxxxxyyxxxwwwvutssssrr.............uuuuuuuuttttuuuvvvutsrrqptsrrqpnkigdcbbb...........bbbcdfilorst
+(PID.TID 0000.0001)     12 .....rrrrrrrrrrqqqpppqqq.........vvwwv.vvwwvvvwwwwwwvvvvwwwwwwwwwwwwwxxxx................llk.kkllmm.....op.ppppqsupppqsuwxyzzzyxxwxxxxxyyxxxwwwvuutsssrr............uuuuuuuuuutttuuuvvvuttsrqpttsrqpnljhecbbbbbbbb......bbbcegjmprst
+(PID.TID 0000.0001)     11 .....sssrrrrrrqqqqppppp..........uww.v.uww.vvwwwwwwwwwwwwvwwwwwwwwwwwxx..................lllkk..........ppp.pppqsupppqsuwxyzzzyyxxxxxxxyyxxxxwwwvuttsssq...........ttuuuuuuuuuutuuuvvvvvutsrqputsrqpomkigdbbbaaaaa.....bbbdegiloqsst
+(PID.TID 0000.0001)     10 .....sssssrrrrrqqqqqqqp.........uuw.vvuuw.vvwwxxwwwxwwwwwvvvvvvwwwww....................................ooppppprsuppprsuwyzzzzzyxxxxxxxyxxxxxwwwwvuttssr..........tttuuuuuuuuuuuuuvvvvvvutssrqutssrqpnmkhebbaaaaaaaaabbbcdfgilnprsss
+(PID.TID 0000.0001)      9 .....rssssssssrrrrrqqqpp.......tuvw.vwuvw.vwwxxxxxxxxwwwvvvvvvvvvvw.....................................ppppppqrtvppqrtvxyzzzzzyxxxxxxyxxxxxxxwwwwvutssr.........tttuuuuuuuuuuuuuuvvwvvvuttsrquttsrqqpnlifcaaaaaaaaaaacdefhjlnpqrsss
+(PID.TID 0000.0001)      8 ....rssttttssssssrrrrqqo.......tuvw.vwuvw.vwxxxxwwwwwwvvvvuuuuuuu.........................................qppprsuwpprsuwxyzzzzzyxxxxxxxxxxxxxwwvvuuutssr......ssstttuuuuuuuuuuuuuvvvwwvvuutssruutssrrqpmjgdbbbbbbbbaabcefhjlnoqrssst
+(PID.TID 0000.0001)      7 ..rrstttttttttttsssrrqqo......ttuvv.vwuvv.vwwwwwwwwwvvvuuuutttttu............................................prtvx.prtvxyzzz+zzyyxxxyxxxxxxxww....ttt.srss..ssstttuuuuuuuuuuuuuuuvvwwwwvuuttssuuttssrrpoligeeeedddcddeefhjlnoqrsssss
+(PID.TID 0000.0001)      6 .rrsttttttttttttttssrrqpo.....suvvvvvwvvvvvwwwwwwwvvvvuuuuuttssst............................................prtvx.prtvxyzz++zzyyxxyyxy.xxxxx.......ssssssssssttuuuuuuuuuuvvvuuuvvvwwwwvvuttssvuttsssrqpnlkiihhgggghjihikmnoqrrsssss
+(PID.TID 0000.0001)      5 .rrstttttttttttttttsssrpo....stvwwwwwxwwwwwxwwwwwvvvvuuuuuutttsst..........................................pqqrsuwqqrsuwyz+++zzyyxxyyyy..xxx.........sssttttttuuuuuuuuuuuvvvvvuuvvwwwwwvvuuttsvuuttsssrqponmlkjjjklnomlmnopqrrssssss
+(PID.TID 0000.0001)      4 qrstttttttttssssssssssrqppqrrtvwxxxxxxxxxxxxwwwwwwvvvuuuuuuttttst..........................................pqr.stvqr.stvyz+++zzyyxyyyyy..............sssttuuuuuuuuuuuuuuuvvvvvvvvvwwwwwvvuutttvuuttttsssrqqponmllnpqrpoopqrrrsssssss
+(PID.TID 0000.0001)      3 rrsttttttsssssrrrrrrrrrrrrstuvwxxxxxxxxxxxxxwwwwwwvvuuuttttttttsstsssssr..................................pqqrs.tvqrs.tvyz+++zzyyxyyyy...............sssuuuuuvvvuuuuuuuuvvvvvvvvvvwwwwwwvuuuttvuuutttttsssrrqponnoqrrrqrrrrsssssssss
+(PID.TID 0000.0001)      2 rssttttsssrrrrqqqqqqqqqrrstuvwxxxxxxxxxxxxxxwwwwvvvuuttssssssssssssssssrr.................................pqrss.tvrss.tvxz+++zzyyxyyyy..............ssssuuuuvvvvvuuuuuuuvvvvvvvvvwwwxxwwvvuuttvvuutttttttssssrrqqqrsrrssssssssssssrr
+(PID.TID 0000.0001)      1 sstttsssrrqqpppoooooooopqrtuvwwxxxxxxwxxxxxwwwvuttsrrrrqqqqqrrsssssssssssss...............................pqrss.turss.tuxz+++zzyyyyyyy..............ssssuuvvvvvvvvvuuuuuvvvvvvvvvwwwxxwwvvuuuuvvuuuuttttttttttssrrs.ssssss.sssssssr.
+(PID.TID 0000.0001)      0 ...tssrrqpponnmmlllllmmmnpqstuvvwww......wwwvutsqppooooonnnoopqrrssssssss...............................qq.rss........tuwyz++zzyyyyyyy.wxx.........rs......vvvvvvvvvuuuuvvvvvvvvvwwxxxwwvvu......uuuuutttttttttttss.ssstttts...ss...
+(PID.TID 0000.0001)     -1 ...ssrrqponmlkjjiiiiiijklmopqrtuvww......wwvusqomllllmmkkkkllmopqrsssssss...............................rr.ss.t......s.uvxzz+zzyyyyyy.xxxx........rrs......vvvvvvvvvvuuvvvvvvvvvvwwxxxwvvuu......vuuuuuutttttttttt.tssttuut.........
+(PID.TID 0000.0001)     -2 ...srrqpnmkjihgggfffffghijlmopqstvw......wvtrpnkiijijkjhghhiijlnpqrrsssss................................sst.uu......ss.uwyzzzzyyyyyyxxxwxx.......sss......vvvvvvvvvvuuvvvvvvwvvvwwxxxwvvuu......vvvuuuuuutttttttt.tsttuvut.........
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) // END OF FIELD                                          =
+(PID.TID 0000.0001) // =======================================================
+(PID.TID 0000.0001) 
+(PID.TID 0000.0001) // Time-average data written, t-step       360
+(PID.TID 0000.0001) 
+(PID.TID 0000.0001)   Seconds in section "ALL                    [THE_MODEL_MAIN]":
+(PID.TID 0000.0001)           User time:   220.299997558817
+(PID.TID 0000.0001)         System time:  0.310000002384186
+(PID.TID 0000.0001)     Wall clock time:   224.713257074356
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001)   Seconds in section "INITIALISE_FIXED       [THE_MODEL_MAIN]":
+(PID.TID 0000.0001)           User time:  0.290000012144446
+(PID.TID 0000.0001)         System time:   3.99999991059303D-002
+(PID.TID 0000.0001)     Wall clock time:  0.769054055213928
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001)   Seconds in section "THE_MAIN_LOOP          [THE_MODEL_MAIN]":
+(PID.TID 0000.0001)           User time:   220.009997546673
+(PID.TID 0000.0001)         System time:  0.270000003278255
+(PID.TID 0000.0001)     Wall clock time:   223.944085955620
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001)   Seconds in section "INITIALISE_VARIA    [THE_MAIN_LOOP]":
+(PID.TID 0000.0001)           User time:  0.890000045299530
+(PID.TID 0000.0001)         System time:   5.00000044703484D-002
+(PID.TID 0000.0001)     Wall clock time:  0.938521981239319
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001)   Seconds in section "WRITE_STATE         [THE_MAIN_LOOP]":
+(PID.TID 0000.0001)           User time:   7.99999237060547D-002
+(PID.TID 0000.0001)         System time:   4.99999970197678D-002
+(PID.TID 0000.0001)     Wall clock time:  0.443289995193481
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001)   Seconds in section "MONITOR             [THE_MAIN_LOOP]":
+(PID.TID 0000.0001)           User time:   5.00000715255737D-002
+(PID.TID 0000.0001)         System time:   0.00000000000000D+000
+(PID.TID 0000.0001)     Wall clock time:   5.21479845046997D-002
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001)   Seconds in section "MAIN LOOP           [THE_MAIN_LOOP]":
+(PID.TID 0000.0001)           User time:   218.989997506142
+(PID.TID 0000.0001)         System time:  0.170000001788139
+(PID.TID 0000.0001)     Wall clock time:   222.510033011436
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001)   Seconds in section "FORWARD_STEP        [THE_MAIN_LOOP]":
+(PID.TID 0000.0001)           User time:   218.959993004799
+(PID.TID 0000.0001)         System time:  0.170000001788139
+(PID.TID 0000.0001)     Wall clock time:   222.504326105118
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "BULKF_FIELDS_LOAD[THE_MAIN_LOOP]":
+(PID.TID 0000.0001)           User time:   1.30998921394348
+(PID.TID 0000.0001)         System time:   3.00000160932541D-002
+(PID.TID 0000.0001)     Wall clock time:   1.42385518550873
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "THERMODYNAMICS      [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:   92.5600724220276
+(PID.TID 0000.0001)         System time:   0.00000000000000D+000
+(PID.TID 0000.0001)     Wall clock time:   92.4893211126327
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "BLOCKING_EXCHANGES  [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:   4.35002183914185
+(PID.TID 0000.0001)         System time:   0.00000000000000D+000
+(PID.TID 0000.0001)     Wall clock time:   4.28939259052277
+(PID.TID 0000.0001)          No. starts:         720
+(PID.TID 0000.0001)           No. stops:         720
+(PID.TID 0000.0001)   Seconds in section "DYNAMICS            [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:   86.1999230384827
+(PID.TID 0000.0001)         System time:   9.99999046325684D-003
+(PID.TID 0000.0001)     Wall clock time:   86.2339746952057
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "SOLVE_FOR_PRESSURE  [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:   13.3399779796600
+(PID.TID 0000.0001)         System time:   9.99999046325684D-003
+(PID.TID 0000.0001)     Wall clock time:   13.3370656967163
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "THE_CORRECTION_STEP [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:   15.0300513505936
+(PID.TID 0000.0001)         System time:   0.00000000000000D+000
+(PID.TID 0000.0001)     Wall clock time:   15.0738070011139
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "MONITOR             [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:   6.99996948242188D-002
+(PID.TID 0000.0001)         System time:   0.00000000000000D+000
+(PID.TID 0000.0001)     Wall clock time:   5.91962337493897D-002
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "DO_THE_MODEL_IO     [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:  0.389999389648437
+(PID.TID 0000.0001)         System time:   8.00000131130219D-002
+(PID.TID 0000.0001)     Wall clock time:   2.37760567665100
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "WRITE_CHECKPOINT    [FORWARD_STEP]":
+(PID.TID 0000.0001)           User time:  0.339996337890625
+(PID.TID 0000.0001)         System time:   3.99999916553497D-002
+(PID.TID 0000.0001)     Wall clock time:   1.78099966049194
+(PID.TID 0000.0001)          No. starts:         360
+(PID.TID 0000.0001)           No. stops:         360
+(PID.TID 0000.0001)   Seconds in section "WRITE_CHECKPOINT       [THE_MODEL_MAIN]":
+(PID.TID 0000.0001)           User time:   0.00000000000000D+000
+(PID.TID 0000.0001)         System time:   0.00000000000000D+000
+(PID.TID 0000.0001)     Wall clock time:   1.80006027221680D-005
+(PID.TID 0000.0001)          No. starts:           1
+(PID.TID 0000.0001)           No. stops:           1
+(PID.TID 0000.0001) // ======================================================
+(PID.TID 0000.0001) // Tile <-> Tile communication statistics
+(PID.TID 0000.0001) // ======================================================
+(PID.TID 0000.0001) // o Tile number: 000001
+(PID.TID 0000.0001) //         No. X exchanges =              0
+(PID.TID 0000.0001) //            Max. X spins =              0
+(PID.TID 0000.0001) //            Min. X spins =     1000000000
+(PID.TID 0000.0001) //          Total. X spins =              0
+(PID.TID 0000.0001) //            Avg. X spins =       0.00E+00
+(PID.TID 0000.0001) //         No. Y exchanges =              0
+(PID.TID 0000.0001) //            Max. Y spins =              0
+(PID.TID 0000.0001) //            Min. Y spins =     1000000000
+(PID.TID 0000.0001) //          Total. Y spins =              0
+(PID.TID 0000.0001) //            Avg. Y spins =       0.00E+00
+(PID.TID 0000.0001) // o Tile number: 000002
+(PID.TID 0000.0001) //         No. X exchanges =              0
+(PID.TID 0000.0001) //            Max. X spins =              0
+(PID.TID 0000.0001) //            Min. X spins =     1000000000
+(PID.TID 0000.0001) //          Total. X spins =              0
+(PID.TID 0000.0001) //            Avg. X spins =       0.00E+00
+(PID.TID 0000.0001) //         No. Y exchanges =              0
+(PID.TID 0000.0001) //            Max. Y spins =              0
+(PID.TID 0000.0001) //            Min. Y spins =     1000000000
+(PID.TID 0000.0001) //          Total. Y spins =              0
+(PID.TID 0000.0001) //            Avg. Y spins =       0.00E+00
+(PID.TID 0000.0001) // o Tile number: 000003
+(PID.TID 0000.0001) //         No. X exchanges =              0
+(PID.TID 0000.0001) //            Max. X spins =              0
+(PID.TID 0000.0001) //            Min. X spins =     1000000000
+(PID.TID 0000.0001) //          Total. X spins =              0
+(PID.TID 0000.0001) //            Avg. X spins =       0.00E+00
+(PID.TID 0000.0001) //         No. Y exchanges =              0
+(PID.TID 0000.0001) //            Max. Y spins =              0
+(PID.TID 0000.0001) //            Min. Y spins =     1000000000
+(PID.TID 0000.0001) //          Total. Y spins =              0
+(PID.TID 0000.0001) //            Avg. Y spins =       0.00E+00
+(PID.TID 0000.0001) // o Tile number: 000004
+(PID.TID 0000.0001) //         No. X exchanges =              0
+(PID.TID 0000.0001) //            Max. X spins =              0
+(PID.TID 0000.0001) //            Min. X spins =     1000000000
+(PID.TID 0000.0001) //          Total. X spins =              0
+(PID.TID 0000.0001) //            Avg. X spins =       0.00E+00
+(PID.TID 0000.0001) //         No. Y exchanges =              0
+(PID.TID 0000.0001) //            Max. Y spins =              0
+(PID.TID 0000.0001) //            Min. Y spins =     1000000000
+(PID.TID 0000.0001) //          Total. Y spins =              0
+(PID.TID 0000.0001) //            Avg. Y spins =       0.00E+00
+(PID.TID 0000.0001) // o Tile number: 000005
+(PID.TID 0000.0001) //         No. X exchanges =              0
+(PID.TID 0000.0001) //            Max. X spins =              0
+(PID.TID 0000.0001) //            Min. X spins =     1000000000
+(PID.TID 0000.0001) //          Total. X spins =              0
+(PID.TID 0000.0001) //            Avg. X spins =       0.00E+00
+(PID.TID 0000.0001) //         No. Y exchanges =              0
+(PID.TID 0000.0001) //            Max. Y spins =              0
+(PID.TID 0000.0001) //            Min. Y spins =     1000000000
+(PID.TID 0000.0001) //          Total. Y spins =              0
+(PID.TID 0000.0001) //            Avg. Y spins =       0.00E+00
+(PID.TID 0000.0001) // o Tile number: 000006
+(PID.TID 0000.0001) //         No. X exchanges =              0
+(PID.TID 0000.0001) //            Max. X spins =              0
+(PID.TID 0000.0001) //            Min. X spins =     1000000000
+(PID.TID 0000.0001) //          Total. X spins =              0
+(PID.TID 0000.0001) //            Avg. X spins =       0.00E+00
+(PID.TID 0000.0001) //         No. Y exchanges =              0
+(PID.TID 0000.0001) //            Max. Y spins =              0
+(PID.TID 0000.0001) //            Min. Y spins =     1000000000
+(PID.TID 0000.0001) //          Total. Y spins =              0
+(PID.TID 0000.0001) //            Avg. Y spins =       0.00E+00
+(PID.TID 0000.0001) // o Thread number: 000001
+(PID.TID 0000.0001) //            No. barriers =         551722
+(PID.TID 0000.0001) //      Max. barrier spins =              1
+(PID.TID 0000.0001) //      Min. barrier spins =              1
+(PID.TID 0000.0001) //     Total barrier spins =         551722
+(PID.TID 0000.0001) //      Avg. barrier spins =       1.00E+00
+FORTRAN STOP NORMAL END

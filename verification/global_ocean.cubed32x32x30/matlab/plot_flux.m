@@ -1,21 +1,24 @@
+function plot_flux
+% Plots diagnostic terms from bulk_forcing package
+% Note that most sign conventions are reverse
+% from model conventions.
+% By default, takes last iteration of data files found.
+
 
 close all
-itr=230400;
 
 delete plot_flux.ps
 
-rac='./';
+filepath='./';
 
-xcs=rdmds([rac,'XC']);
-ycs=rdmds([rac,'YC']); 
-xcg=rdmds([rac,'XG']);
-ycg=rdmds([rac,'YG']);
-x=rdmds('XC');
-y=rdmds('YC');
+xcs=rdmds(fullfile(filepath,'XC'));
+ycs=rdmds(fullfile(filepath,'YC')); 
+xcg=rdmds(fullfile(filepath,'XG'));
+ycg=rdmds(fullfile(filepath,'YG'));
 
 flist ={'BULK_EmPmR',  'BULK_fv',        'BULK_solar',...
 	'BULK_evap',   'BULK_latent',    'BULK_ssq'...
-	'BULK_flwup',    'BULK_Qnet'...
+	'BULK_flwup',  'BULK_Qnet'...
 	'BULK_fu',     'BULK_sensible', 'BULK_flwupnet'};
 
 lbls  ={'empmr=-evap+rain-runoff',  ' ', 'fswnet=solar*(1-albedo), W/m^2',...
@@ -27,40 +30,25 @@ lbls  ={'empmr=-evap+rain-runoff',  ' ', 'fswnet=solar*(1-albedo), W/m^2',...
 
 
 
-%for i=1:length(flist)
-for i=4:4
+for i=1:length(flist)
   filname=flist{i};
 
 
-  t=rdmds(filname,itr);
+  t=rdmds(fullfile(filepath,filname),NaN);
   t=sq(t);
   tstring=[filname,' ',lbls{i}];
-  %min(min(min(t)))
-  %max(max(max(t)))
 
-
+  figure(i)
   if ~(i== 2 | i==9)
-    figure(i)
     shift=-1;
     c1=0;
     c2=0;
     grph_CS(t(:,:,1),xcs,ycs,xcg,ycg,c1,c2,shift)
     title(strrep(tstring,'_','-'));
     print -dpsc2 -append plot_flux.ps
+  else
+    %       displaytiles( tiles(sq(t),1:6))
+    %       title(strrep(tstring,'_','\_'));
   end
-
-   if 0==1
-  figure(i+20)
-  %displaytiles(t)
-  displaytiles( tiles(sq(t),1:6))
-  title(strrep(tstring,'_','-'));
-end
-
-  %print -Pcolor1519
-  %pause(3)
-
-
-
-
 
 end

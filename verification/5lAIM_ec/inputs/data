@@ -6,7 +6,7 @@
  &PARM01
  tRef=281.089, 289.321, 307.191, 331.377, 432.413,
  sRef=5*0.,
- viscAr=0.E1,
+ viscAr=1.E3,
  viscAh=0.E6,
  viscA4=0.E17,
  no_slip_sides=.FALSE.,
@@ -45,8 +45,8 @@
 # Time stepping parameters
  &PARM03
  niter0=0,
- nTimeSteps=100000,
- deltaT=450.0,
+ endTime=31104000.,
+ deltaT=300.0,
  abEps=0.1,
  cAdjFreq=0.,
  pChkptFreq=2592000.0,

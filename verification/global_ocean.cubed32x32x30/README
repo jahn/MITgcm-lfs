@@ -1,0 +1,48 @@
+Example: "Cubed Sphere Simulation with Seasonal Forcing"
+=======================================
+
+Build:
+
+To apply the changes to the default configuration of MITgcmUV:
+Configure and compile the code:
+  cd verification/global_ocean.cubed32x32x30/build
+  ../../../tools/genmake -mods=../code -enable=therm_seaice -enable=bulk_force -fc=ifc
+  make depend
+  make
+
+To run the code:
+  cd verification/global_ocean.cubed32x32x30/run
+  ln -s ../input/* .
+  ../build/mitgcmuv
+
+There is comparison output in directory:
+ ../verification/global_ocean.cubed32x32x30/results
+
+Experiments:
+  Exp1 - 1 year run, spin-up from rest
+  Exp2 - 1 year run, pickup from year 1000
+
+
+
+
+=======================================
+Notes:  To disable bulk forcing and sea ice,
+go to data.pkg and set
+ useBulkforce=.FALSE.,
+ useThermSeaIce=.FALSE.,
+
+
+
+
+=======================================
+Scripts:
+
+Input forcing fields:
+  ncep2cube.m  - creates forcing fields from NCEP monthly climatology
+  ncep2cubeWind.m  - creates forcing fields from NCEP monthly climatology
+                     for bulk forcing (wind speed on tracer points)
+  
+
+
+Output analysis:
+  plot_psi.m - computes and plots overturning stream function

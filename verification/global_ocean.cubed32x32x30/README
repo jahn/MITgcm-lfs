@@ -20,7 +20,6 @@ There is comparison output in directory:
 
 Experiments:
   Exp1 - 1 year run, spin-up from rest
-  Exp2 - 1 year run, pickup from year 1000
 
 
 
@@ -46,3 +45,5 @@ Input forcing fields:
 
 Output analysis:
   plot_psi.m - computes and plots overturning stream function
+  plot_ts.m  - plots surface T and S
+

@@ -8,7 +8,7 @@ C will be compiled.
 C
 
 C o Include/exclude code for AIM package
-#undef  ALLOW_AIM
+#define ALLOW_AIM
 
 C o Include/exclude code for GM/Redi parameterization
 #undef  ALLOW_GMREDI

@@ -169,9 +169,11 @@ C     per proc.
          UG1(I2,Katm)   = 0.5*(uVel(I,J,K,bi,bj)+uVel(I+1,J,K,bi,bj))
          VG1(I2,Katm)   = 0.5*(vVel(I,J,K,bi,bj)+vVel(I,J+1,K,bi,bj))
 C        Phyiscs works with temperature - not potential temp.
-         TG1(I2,Katm)   = theta(I,J,K,bi,bj)/((pGround/pSurfs(K))**(RD/CPAIR))
+         TG1(I2,Katm)   =
+     &     theta(I,J,K,bi,bj)/((pGround/pSurfs(K))**(RD/CPAIR))
          QG1(I2,Katm)   = salt(I,J,K,bi,bj)
-         PHIG1(I2,Katm) = (phiTotal(I,J,K)- ptotalniv5 ) + gravity*Hinitial(k)
+         PHIG1(I2,Katm) =
+     &     (phiTotal(I,J,K)- ptotalniv5 ) + gravity*Hinitial(k)
          if(hFacC(i,j,k,bi,bj).eq.1.) then
            RHOG1(I2,Katm) = pSurfs(K)/RD/TG1(I2,Katm)
          else

@@ -1,0 +1,116 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+ tRef=19.57744311328119, 17.25363029167329, 14.01256805560885,
+      10.92201823917430,  8.35731124112526,  5.97216228172560,
+       4.40474662381227,  3.35858490036492,  2.68687099141302,
+       2.24415801388183,  1.80854406711336,  1.52156995074018,
+       1.24746848694724,  1.01047786016651,  0.86255200587565,
+ sRef=34.96441353144107, 35.04312621395623, 35.00838457624263,
+      34.82471661454321, 34.63955868937307, 34.52149244311425,
+      34.52714202454926, 34.60292085665336, 34.67396490452712,
+      34.71213469393944, 34.73320164129537, 34.73760578657264,
+      34.73672842133411, 34.73110069286633, 34.72623580748152,
+ tRef=15*0.,
+ sRef=15*0.,
+ no_slip_bottom=.FALSE.,
+ viscAh =3.E5,
+ viscAz =1.67E-3,
+#viscAr =1.721611620915750e5,
+ diffKhT=1.E3, 
+ diffK4T=0., 
+ diffKzT=0.5E-4,
+#diffKrT=5.154525811125000e3,
+ diffKhS=1.E3,  
+ diffK4S=0., 
+ diffKzS=0.5E-4,
+#diffKrS=5.154525811125000e3,
+ gravity=9.81,
+ gBaro=9.81,
+ rhonil=1035.,
+ rigidLid=.FALSE.,
+ implicitFreeSurface=.TRUE.,
+ uniformLin_PhiSurf=.FALSE.,
+ exactConserv=.TRUE.,
+ nonlinFreeSurf=3, 
+ hFacInf=0.2,
+ hFacSup=2.0,
+ eosType='JMD95P',
+ ivdc_kappa=10.0,
+#ivdc_kappa=1.030905162225000e9,
+ implicitDiffusion=.TRUE.,
+#allowFreezing=.TRUE.,
+# need to convert this one to ||||
+#                             vvvv
+#bottomDragQuadratic=1.E-3,
+ buoyancyRelation='OCEANIC',
+ tempAdvScheme=2,
+ saltAdvScheme=2,
+ tempStepping =.TRUE.,
+ saltStepping =.TRUE.,
+ useRealFreshWaterFlux=.FALSE.,
+#hFacMinDz=0,
+ readBinaryPrec=64,
+ cosPower=0.5,
+ &
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=200,
+ cg2dTargetResidual=1.E-9,
+ &
+
+# Time stepping parameters
+ &PARM03
+ niter0      = 0,
+ ntimesteps  = 180000,
+ deltaTmom   =1200.0,
+ deltaTtracer=172800.0,
+ deltaTfreesurf=172800.0,
+ deltaTClock =172800.0,
+ pChkptFreq  =3110400000.,
+ chkptFreq   =3110400000., 
+ dumpFreq    =3110400000.,
+ taveFreq    =3110400000.,
+ monitorFreq =3110400000.,
+ periodicExternalForcing=.TRUE.,
+ externForcingPeriod=2592000.,
+ externForcingCycle=31104000.,
+ tauThetaClimRelax=5184000.0,
+#tauSaltClimRelax =62208000.0,
+ abEps=0.1,
+#dumpFreq=1.,
+#monitorFreq=1.,
+#taveFreq=1.,
+#dumpFreq=17280000.,
+#monitorFreq=1728000.,
+#taveFreq=17280000.,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.FALSE.,
+ usingSphericalPolarGrid=.TRUE.,
+ dXspacing=4.,
+ dYspacing=4.,
+ delZ=50.,70.,100.,140.,190.,240.,290.,340.,390.,440.,490.,540.,590.,640.,690.,
+ phiMin=-80.,
+ &
+
+# Input datasets
+ &PARM05
+ bathyFile      ='bathymetry.bin',
+# hydrogThetaFile='lev_t.bin',
+# hydrogSaltFile ='lev_s.bin',
+ hydrogThetaFile='const_t.bin',
+ hydrogSaltFile ='const_s.bin',
+ zonalWindFile  ='trenberth_taux.bin',
+ meridWindFile  ='trenberth_tauy.bin',
+ thetaClimFile  ='lev_sst.bin',
+#saltClimFile   ='lev_sss.bin',
+ surfQFile      ='shi_qnet.bin',
+ EmPmRFile      ='shi_empmr.bin',
+ &

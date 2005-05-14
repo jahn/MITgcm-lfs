@@ -1,5 +1,4 @@
  &GCHEM_PARM01
-  tIter0=12600000,
   iceFile='input/fice.bin',
   windFile='input/tren_speed.bin',
   ironFile='input/fe_flux.bin',

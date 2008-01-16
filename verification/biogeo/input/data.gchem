@@ -1,6 +1,0 @@
- &GCHEM_PARM01
-  iceFile='input/fice.bin',
-  windFile='input/tren_speed.bin',
-  ironFile='input/fe_flux.bin',
-  nsubtime=1,
- &
